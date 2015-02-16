@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\librebecca\src\rebecca\AimlFacade.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\AIML.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Bot.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Category.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Condition.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Date.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Formal.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\FrameworkFactory.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Gender.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Get.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Gossip.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\GraphBuilderFramework.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Id.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\IdentificationManager.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\InnerAIML.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\InnerCategory.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\InnerTemplaListImpl.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\InnerTemplate.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\InnerTopic.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Input.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Learn.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Li.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\LowerCase.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\NonImplemented.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Pattern.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\PatternSideThat.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Person.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Person2.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\PlainWord.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Random.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\RemoveAIML.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\RemoveTopic.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Sentence.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Set.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Size.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Srai.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Star.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\System.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Tag.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Template.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\TemplateSideThat.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\ThatStar.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Think.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Topic.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\TopicStar.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\UpperCase.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\framework\Version.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\GraphBuilder.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\ConfigurationHandler.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\ConfigurationHandlerError.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\CustomTagWithDelete.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\DatabaseManager.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\Factory.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\getStringFromSentence.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\GraphBuilderAIML.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\GraphBuilderInternal.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\GraphHandler.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\GraphHandlerError.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\network.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\NodeMapper.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\PredicateManager.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\PreviousResponsesManager.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\RemoveGraphHandler.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\ScopedTransaction.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\StarsManager.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\TemplateParser.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\utils\Transcode.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\impl\XercesSAXXMLManager.cpp" />
+    <ClCompile Include="..\librebecca\src\rebecca\StringPimpl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\librebecca\src\rebecca\impl\network.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CC504EF8-B1AF-4DFD-B800-1934DD0F2854}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Rebecca</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\librebecca\include;..\xerces-c-3.1.1\src;..\boost\%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

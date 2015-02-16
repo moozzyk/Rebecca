@@ -14,3 +14,4 @@ Release/
 ipch/
 *.vcxproj.user
 *.exe
+xerces-c-3.1.1/
