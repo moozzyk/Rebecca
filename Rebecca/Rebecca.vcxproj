@@ -9,22 +9,22 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-  </ItemGroup>
+  </ItemGroup> 
   <ItemGroup>
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\AimlFacade.cpp" />
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\GraphBuilder.cpp" />
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\StringPimpl.cpp" />    
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\AIML.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Bot.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Category.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Condition.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Date.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Formal.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\FrameworkFactory.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Gender.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Get.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Gossip.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\GraphBuilderFramework.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Id.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\IdentificationManager.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerAIML.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerCategory.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerTemplaListImpl.cpp" />
@@ -41,8 +41,6 @@
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Person2.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\PlainWord.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Random.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\RemoveAIML.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\RemoveTopic.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Sentence.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Set.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Size.cpp" />
@@ -58,31 +56,20 @@
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\TopicStar.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\UpperCase.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Version.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\GraphBuilder.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\ConfigurationHandler.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\ConfigurationHandlerError.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\CustomTagWithDelete.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\DatabaseManager.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\Factory.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\getStringFromSentence.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphBuilderAIML.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphBuilderInternal.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphHandler.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphHandlerError.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\network.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\NodeMapper.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\PredicateManager.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\PreviousResponsesManager.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\RemoveGraphHandler.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\ScopedTransaction.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\StarsManager.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\TemplateParser.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\Transcode.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\XercesSAXXMLManager.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\StringPimpl.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\RebeccaAIML-src-9871\src\rebecca\impl\network.h" />
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\PrototypeFactory.cpp" />
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\Logging.cpp" />
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\StackTrace.cpp" />
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\Transcode.cpp" />   
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CC504EF8-B1AF-4DFD-B800-1934DD0F2854}</ProjectGuid>

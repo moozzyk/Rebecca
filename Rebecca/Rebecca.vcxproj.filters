@@ -24,217 +24,65 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\AimlFacade.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\GraphBuilder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\StringPimpl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\AIML.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Bot.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Category.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Condition.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Date.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Formal.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\FrameworkFactory.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Gender.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Get.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Gossip.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\GraphBuilderFramework.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Id.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\IdentificationManager.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerAIML.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerCategory.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerTemplaListImpl.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerTemplate.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerTopic.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Input.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Learn.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Li.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\LowerCase.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\NonImplemented.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Pattern.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\PatternSideThat.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Person.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Person2.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\PlainWord.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Random.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\RemoveAIML.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\RemoveTopic.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Sentence.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Set.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Size.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Srai.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Star.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\System.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Tag.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Template.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\TemplateSideThat.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\ThatStar.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Think.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Topic.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\TopicStar.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\UpperCase.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Version.cpp">
-      <Filter>Source Files\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\ConfigurationHandler.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\ConfigurationHandlerError.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\CustomTagWithDelete.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\DatabaseManager.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\Factory.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\getStringFromSentence.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphBuilderAIML.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphBuilderInternal.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphHandler.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphHandlerError.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\network.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\NodeMapper.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\PredicateManager.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\PreviousResponsesManager.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\RemoveGraphHandler.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\ScopedTransaction.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\StarsManager.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\TemplateParser.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\XercesSAXXMLManager.cpp">
-      <Filter>Source Files\impl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\Transcode.cpp">
-      <Filter>Source Files\impl\utils</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\RebeccaAIML-src-9871\src\rebecca\impl\network.h">
-      <Filter>Source Files\impl</Filter>
-    </ClInclude>
+
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\AimlFacade.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\GraphBuilder.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\StringPimpl.cpp"><Filter>Source Files</Filter></ClCompile>    
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\AIML.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Bot.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Category.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Condition.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Date.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Formal.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Gender.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Get.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Gossip.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\GraphBuilderFramework.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Id.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerAIML.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerCategory.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerTemplaListImpl.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerTemplate.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerTopic.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Input.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Learn.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Li.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\LowerCase.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\NonImplemented.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Pattern.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\PatternSideThat.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Person.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Person2.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\PlainWord.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Random.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Sentence.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Set.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Size.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Srai.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Star.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\System.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Tag.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Template.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\TemplateSideThat.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\ThatStar.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Think.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Topic.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\TopicStar.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\UpperCase.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Version.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\ConfigurationHandler.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\ConfigurationHandlerError.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\CustomTagWithDelete.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\Factory.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\getStringFromSentence.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphBuilderAIML.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphBuilderInternal.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphHandler.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphHandlerError.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\NodeMapper.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\PrototypeFactory.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\Logging.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\StackTrace.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\Transcode.cpp"><Filter>Source Files</Filter></ClCompile>
   </ItemGroup>
 </Project>
