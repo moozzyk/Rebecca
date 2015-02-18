@@ -9,11 +9,74 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-  </ItemGroup> 
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\Deque.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\List.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\Map.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\Queue.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\Stack.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\String.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\Vector.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\AimlFacade.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\all.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\CallBacks.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\Exceptions.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\exports.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\AIML.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Bot.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Category.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Condition.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\CustomTags.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Date.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Formal.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Gender.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Get.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Gossip.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Id.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\InnerAIML.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\InnerCategory.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\InnerTemplate.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\InnerTemplateListImpl.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\InnerTopic.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Input.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Learn.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Li.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\LowerCase.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\NonImplemented.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Pattern.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\PatternSideThat.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Person.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Person2.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\PlainWord.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Random.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Sentence.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Set.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Size.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Srai.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Star.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\System.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Tag.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Template.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\TemplateSideThat.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\ThatStar.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Think.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Topic.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\TopicStar.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\UpperCase.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Version.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\GraphBuilder.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\impl\ConfigurationHandler.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\impl\Exceptions.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\impl\GraphBuilderAIML.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\impl\GraphHandler.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\impl\NodeMapper.h" />
+    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\StringPimpl.h" />
+  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\AimlFacade.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\GraphBuilder.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\StringPimpl.cpp" />    
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\StringPimpl.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\AIML.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Bot.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Category.cpp" />
@@ -69,7 +132,7 @@
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\PrototypeFactory.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\Logging.cpp" />
     <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\StackTrace.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\Transcode.cpp" />   
+    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\Transcode.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CC504EF8-B1AF-4DFD-B800-1934DD0F2854}</ProjectGuid>
@@ -80,18 +143,15 @@
   <PropertyGroup>
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>v120</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>  
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-  
   <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
     <UseDebugLibraries>true</UseDebugLibraries>
   </PropertyGroup>
-  
   <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
-
   <ItemDefinitionGroup>
     <ClCompile>
       <PrecompiledHeader>
@@ -108,43 +168,37 @@
       <StripPrivateSymbols>$(OutDir)$(TargetName).pub.pdb</StripPrivateSymbols>
     </Link>
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
     </ClCompile>
   </ItemDefinitionGroup>
-  
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
-  
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PreprocessorDefinitions>_WIN64;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
-  
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link> 
+    </Link>
   </ItemDefinitionGroup>
-  
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PreprocessorDefinitions>_WIN64;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link> 
-  </ItemDefinitionGroup>  
-  
+    </Link>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -164,7 +218,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\RebeccaAIML-src-9871\include;..\xerces-c-3.1.1\src;..\boost\%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\RebeccaAIML-src-9871\include\rebecca\include;..\xerces-c-3.1.1\src;..\boost\%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
