@@ -89,7 +89,7 @@ StringPimpl Person::getString() const
 			return m_pimpl->m_builder.personSubstitute(InnerTemplateListImpl::getString());
 		}
 	}
-	catch(Exception &e)
+	catch(std::exception &e)
 	{
 		logging(String("Fatal exception occured:") + e.what());
 		return StringPimpl();

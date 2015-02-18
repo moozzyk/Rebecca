@@ -121,7 +121,7 @@ class REBECCA_EXPORT Version : public InnerTemplate
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<VersionImpl> m_pimpl;
+		std::shared_ptr<VersionImpl> m_pimpl;
 };
 
 } //end of namespace impl

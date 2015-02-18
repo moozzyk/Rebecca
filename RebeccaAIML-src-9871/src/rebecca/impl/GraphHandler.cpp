@@ -96,7 +96,7 @@ GraphHandler::GraphHandler(NodeMapper &root, GraphBuilderInternal &builder)
 
 
 
-shared_ptr<Tag> GraphHandler::createTagClass(const String &className) 
+std::shared_ptr<Tag> GraphHandler::createTagClass(const String &className) 
 {
 
 
@@ -106,7 +106,7 @@ shared_ptr<Tag> GraphHandler::createTagClass(const String &className)
 
 	for(I it = customTags.begin(); it != customTags.end(); ++it)
 	{
-		shared_ptr<Tag> tag = (it->second).m_customTags->createTagClass(className.c_str(), m_builder);
+		std::shared_ptr<Tag> tag = (it->second).m_customTags->createTagClass(className.c_str(), m_builder);
 		if(tag.get() != 0)
 		{
 			return tag;
@@ -118,148 +118,148 @@ shared_ptr<Tag> GraphHandler::createTagClass(const String &className)
 		m_templateSideThat = false;
 		++m_size;
 		m_builder.setSize(m_size);
-		return shared_ptr<Tag>(new Category(m_builder));
+		return std::shared_ptr<Tag>(new Category(m_builder));
 	}
 	else if(className == "pattern") //2
 	{
-		return shared_ptr<Tag>(new Pattern);
+		return std::shared_ptr<Tag>(new Pattern);
 	}
 	else if(className == "template") //3
 	{
 		m_templateSideThat = true;
-		return shared_ptr<Tag>(new Template);
+		return std::shared_ptr<Tag>(new Template);
 	}
 	else if(className == "topic") //4
 	{
-		return shared_ptr<Tag>(new Topic(m_builder));
+		return std::shared_ptr<Tag>(new Topic(m_builder));
 	}
 	else if(className == "srai") //5
 	{
-		return shared_ptr<Tag>(new Srai(m_builder));
+		return std::shared_ptr<Tag>(new Srai(m_builder));
 	}
 	else if(className == "that") //6
 	{
 		if(m_templateSideThat)
 		{
-			return shared_ptr<Tag>(new TemplateSideThat(m_builder));
+			return std::shared_ptr<Tag>(new TemplateSideThat(m_builder));
 		}
 		else 
 		{
-			return shared_ptr<Tag>(new PatternSideThat(m_builder));
+			return std::shared_ptr<Tag>(new PatternSideThat(m_builder));
 		}
 	}
 	else if(className == "star") //7
 	{
-		return shared_ptr<Tag>(new Star(m_builder));
+		return std::shared_ptr<Tag>(new Star(m_builder));
 	}
 	else if(className == "set") //8
 	{
-		return shared_ptr<Tag>(new Set(m_builder));
+		return std::shared_ptr<Tag>(new Set(m_builder));
 	}
 	else if(className == "get") //9
 	{
-		return shared_ptr<Tag>(new Get(m_builder));
+		return std::shared_ptr<Tag>(new Get(m_builder));
 	}
 	else if(className == "think") //10
 	{
-		return shared_ptr<Tag>(new Think);
+		return std::shared_ptr<Tag>(new Think);
 	}
 	else if(className == "person") //11
 	{
-		return shared_ptr<Tag>(new Person(m_builder));
+		return std::shared_ptr<Tag>(new Person(m_builder));
 	}
 	else if(className == "bot") //12
 	{
-		return shared_ptr<Tag>(new Bot(m_builder));
+		return std::shared_ptr<Tag>(new Bot(m_builder));
 	}
 	else if(className == "condition") //13
 	{
-		return shared_ptr<Tag>(new Condition(m_builder));
+		return std::shared_ptr<Tag>(new Condition(m_builder));
 	}
 	else if(className == "li") //14
 	{
-		return shared_ptr<Tag>(new Li); 
+		return std::shared_ptr<Tag>(new Li); 
 	} 
 	else if(className == "random") //15
 	{
-		return shared_ptr<Tag>(new Random);
+		return std::shared_ptr<Tag>(new Random);
 	}
 	else if(className == "sr") //16
 	{
-		shared_ptr<Tag> nonImplemented(new NonImplemented);
-		shared_ptr<Tag> srai(new Srai(m_builder));
-		shared_ptr<Tag> star(new Star(m_builder));
+		std::shared_ptr<Tag> nonImplemented(new NonImplemented);
+		std::shared_ptr<Tag> srai(new Srai(m_builder));
+		std::shared_ptr<Tag> star(new Star(m_builder));
 		srai->handleInnerTag(star);
 		nonImplemented->handleInnerTag(srai);
 		return nonImplemented;
 	}
 	else if(className == "input") //17
 	{
-		return shared_ptr<Input>(new Input(m_builder));
+		return std::shared_ptr<Input>(new Input(m_builder));
 	}
 	else if(className == "thatstar") //18
 	{
-		return shared_ptr<ThatStar>(new ThatStar(m_builder));
+		return std::shared_ptr<ThatStar>(new ThatStar(m_builder));
 	}
 	else if(className == "topicstar") //19
 	{
-		return shared_ptr<TopicStar>(new TopicStar(m_builder));
+		return std::shared_ptr<TopicStar>(new TopicStar(m_builder));
 	}
 	else if(className == "person2") //20
 	{
-		return shared_ptr<Tag>(new Person2(m_builder));
+		return std::shared_ptr<Tag>(new Person2(m_builder));
 	}
 	else if(className == "gender") //21
 	{
-		return shared_ptr<Tag>(new Gender(m_builder));
+		return std::shared_ptr<Tag>(new Gender(m_builder));
 	}
 	else if(className == "lowercase") //22
 	{
-		return shared_ptr<Tag>(new LowerCase);
+		return std::shared_ptr<Tag>(new LowerCase);
 	}
 	else if(className == "uppercase") //23
 	{
-		return shared_ptr<Tag>(new UpperCase);
+		return std::shared_ptr<Tag>(new UpperCase);
 	}
 	else if(className == "sentence") //24
 	{
-		return shared_ptr<Tag>(new Sentence);
+		return std::shared_ptr<Tag>(new Sentence);
 	}
 	else if(className == "formal") //25
 	{
-		return shared_ptr<Tag>(new Formal);
+		return std::shared_ptr<Tag>(new Formal);
 	}
 	else if(className == "date") //26
 	{
-		return shared_ptr<Tag>(new Date);
+		return std::shared_ptr<Tag>(new Date);
 	}
 	else if(className == "id") //27
 	{
-		return shared_ptr<Tag>(new Id(m_builder));
+		return std::shared_ptr<Tag>(new Id(m_builder));
 	}
 	else if(className == "size") //28
 	{
-		return shared_ptr<Tag>(new Size(m_builder));
+		return std::shared_ptr<Tag>(new Size(m_builder));
 	}
 	else if(className == "version") //29
 	{
-		return shared_ptr<Tag>(new Version(m_builder));
+		return std::shared_ptr<Tag>(new Version(m_builder));
 	}
 	else if(className == "system") //30
 	{
-		return shared_ptr<Tag>(new System);
+		return std::shared_ptr<Tag>(new System);
 	}
 	else if(className == "gossip") //31
 	{
-		return shared_ptr<Tag>(new Gossip(m_builder));
+		return std::shared_ptr<Tag>(new Gossip(m_builder));
 	}
 	else if(className == "aiml") //32
 	{
-		return shared_ptr<Tag>(new AIML(m_builder));
+		return std::shared_ptr<Tag>(new AIML(m_builder));
 	}
 	else if(className == "learn") //33
 	{
-		return shared_ptr<Tag>(new Learn(m_builder));
+		return std::shared_ptr<Tag>(new Learn(m_builder));
 	}
 	else
 	{
@@ -270,7 +270,7 @@ shared_ptr<Tag> GraphHandler::createTagClass(const String &className)
 		//tag such as <html:em>some text<html:em>  the 
 		//unimplemented tag will return "some text"
 		logging("Unimplemeneted tag found.  Name is:" + className);
-		return shared_ptr<Tag>(new PlainWord);
+		return std::shared_ptr<Tag>(new PlainWord);
 	}
 }
 
@@ -361,7 +361,7 @@ void GraphHandler::endElement(const XMLCh *const name)
 			InternalProgrammerErrorExceptionImpl("[void GraphHandler::endElement(const XMLCh *const name)], Stack is empty");
 		}
 
-		shared_ptr<Tag> tag = m_tagStack.top();
+		std::shared_ptr<Tag> tag = m_tagStack.top();
 		m_tagStack.pop();
 
 		if(!m_tagStack.empty())
@@ -412,7 +412,7 @@ String GraphHandler::getAIMLVersion()
 	return m_aimlVersion;
 }
 /* Commented out.  Not fast enough to justify use
-shared_ptr<Tag> GraphHandler::createTagClassFromMap(const String &className) 
+std::shared_ptr<Tag> GraphHandler::createTagClassFromMap(const String &className) 
 {
 	typedef map<String, createTagMethod>::iterator I;
 	I it = m_tagLookup.find(className);
@@ -430,7 +430,7 @@ shared_ptr<Tag> GraphHandler::createTagClassFromMap(const String &className)
 		//tag such as <html:em>some text<html:em>  the 
 		//unimplemented tag will return "some text"
 		logging("Unimplemeneted tag found.  Name is:" + className);
-		return shared_ptr<Tag>(new PlainWord);
+		return std::shared_ptr<Tag>(new PlainWord);
 	}
 }
 
@@ -479,145 +479,145 @@ void GraphHandler::init()
 	m_tagLookup.insert(pair<String, createTagMethod>("aiml", &GraphHandler::createAimlTag)); //32
 }
 
-shared_ptr<Tag> GraphHandler::createCategoryTag()
+std::shared_ptr<Tag> GraphHandler::createCategoryTag()
 {
 		++m_size;
 		m_builder.setSize(m_size);
 		m_builder.getCallBacks().categoryLoaded();
-		return shared_ptr<Tag>(new Category);
+		return std::shared_ptr<Tag>(new Category);
 }
-shared_ptr<Tag> GraphHandler::createPatternTag()
+std::shared_ptr<Tag> GraphHandler::createPatternTag()
 {
-		return shared_ptr<Tag>(new Pattern);
+		return std::shared_ptr<Tag>(new Pattern);
 }
-shared_ptr<Tag> GraphHandler::createTemplateTag()
+std::shared_ptr<Tag> GraphHandler::createTemplateTag()
 {
-		return shared_ptr<Tag>(new Template);
+		return std::shared_ptr<Tag>(new Template);
 }
-shared_ptr<Tag> GraphHandler::createTopicTag()
+std::shared_ptr<Tag> GraphHandler::createTopicTag()
 {
-		return shared_ptr<Tag>(new Topic(m_rootNodeMapper));
+		return std::shared_ptr<Tag>(new Topic(m_rootNodeMapper));
 }
-shared_ptr<Tag> GraphHandler::createSraiTag()
+std::shared_ptr<Tag> GraphHandler::createSraiTag()
 {
-		return shared_ptr<Tag>(new Srai(m_builder));
+		return std::shared_ptr<Tag>(new Srai(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createThatTag()
+std::shared_ptr<Tag> GraphHandler::createThatTag()
 {
-		return shared_ptr<Tag>(new That(m_builder));
+		return std::shared_ptr<Tag>(new That(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createStarTag()
+std::shared_ptr<Tag> GraphHandler::createStarTag()
 {
-		return shared_ptr<Tag>(new Star(m_builder));
+		return std::shared_ptr<Tag>(new Star(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createSetTag()
+std::shared_ptr<Tag> GraphHandler::createSetTag()
 {
-		return shared_ptr<Tag>(new Set(m_builder));
+		return std::shared_ptr<Tag>(new Set(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createGetTag()
+std::shared_ptr<Tag> GraphHandler::createGetTag()
 {
-		return shared_ptr<Tag>(new Get(m_builder));
+		return std::shared_ptr<Tag>(new Get(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createThinkTag()
+std::shared_ptr<Tag> GraphHandler::createThinkTag()
 {
-		return shared_ptr<Tag>(new Think);
+		return std::shared_ptr<Tag>(new Think);
 }
-shared_ptr<Tag> GraphHandler::createPersonTag()
+std::shared_ptr<Tag> GraphHandler::createPersonTag()
 {
-		return shared_ptr<Tag>(new Person(m_builder));
-}
-
-shared_ptr<Tag> GraphHandler::createBotTag()
-{
-		return shared_ptr<Tag>(new Bot(m_builder));
+		return std::shared_ptr<Tag>(new Person(m_builder));
 }
 
-shared_ptr<Tag> GraphHandler::createConditionTag()
+std::shared_ptr<Tag> GraphHandler::createBotTag()
 {
-		return shared_ptr<Tag>(new Condition(m_builder));
+		return std::shared_ptr<Tag>(new Bot(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createLiTag()
+
+std::shared_ptr<Tag> GraphHandler::createConditionTag()
 {
-		return shared_ptr<Tag>(new Li);
+		return std::shared_ptr<Tag>(new Condition(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createRandomTag()
+std::shared_ptr<Tag> GraphHandler::createLiTag()
 {
-		return shared_ptr<Tag>(new Random);
+		return std::shared_ptr<Tag>(new Li);
 }
-shared_ptr<Tag> GraphHandler::createSrTag()
+std::shared_ptr<Tag> GraphHandler::createRandomTag()
 {
-		shared_ptr<Tag> nonImplemented(new NonImplemented);
-		shared_ptr<Tag> srai(new Srai(m_builder));
-		shared_ptr<Tag> star(new Star(m_builder));
+		return std::shared_ptr<Tag>(new Random);
+}
+std::shared_ptr<Tag> GraphHandler::createSrTag()
+{
+		std::shared_ptr<Tag> nonImplemented(new NonImplemented);
+		std::shared_ptr<Tag> srai(new Srai(m_builder));
+		std::shared_ptr<Tag> star(new Star(m_builder));
 		srai->handleInnerTag(star);
 		nonImplemented->handleInnerTag(srai);
 		return nonImplemented;
 }
-shared_ptr<Tag> GraphHandler::createInputTag()
+std::shared_ptr<Tag> GraphHandler::createInputTag()
 {
-		return shared_ptr<Input>(new Input(m_builder));
+		return std::shared_ptr<Input>(new Input(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createThatStarTag()
+std::shared_ptr<Tag> GraphHandler::createThatStarTag()
 {
-		return shared_ptr<ThatStar>(new ThatStar(m_builder));
+		return std::shared_ptr<ThatStar>(new ThatStar(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createTopicStarTag()
+std::shared_ptr<Tag> GraphHandler::createTopicStarTag()
 {
-		return shared_ptr<TopicStar>(new TopicStar(m_builder));
+		return std::shared_ptr<TopicStar>(new TopicStar(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createPerson2Tag()
+std::shared_ptr<Tag> GraphHandler::createPerson2Tag()
 {
-		return shared_ptr<Tag>(new Person2(m_builder));
-}
-
-shared_ptr<Tag> GraphHandler::createGenderTag()
-{
-		return shared_ptr<Tag>(new Gender(m_builder));
+		return std::shared_ptr<Tag>(new Person2(m_builder));
 }
 
-shared_ptr<Tag> GraphHandler::createLowerCaseTag()
+std::shared_ptr<Tag> GraphHandler::createGenderTag()
 {
-		return shared_ptr<Tag>(new LowerCase);
+		return std::shared_ptr<Tag>(new Gender(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createUpperCaseTag()
+
+std::shared_ptr<Tag> GraphHandler::createLowerCaseTag()
 {
-		return shared_ptr<Tag>(new UpperCase);
+		return std::shared_ptr<Tag>(new LowerCase);
 }
-shared_ptr<Tag> GraphHandler::createSentenceTag()
+std::shared_ptr<Tag> GraphHandler::createUpperCaseTag()
 {
-		return shared_ptr<Tag>(new Sentence);
+		return std::shared_ptr<Tag>(new UpperCase);
 }
-shared_ptr<Tag> GraphHandler::createFormalTag()
+std::shared_ptr<Tag> GraphHandler::createSentenceTag()
 {
-		return shared_ptr<Tag>(new Formal);
+		return std::shared_ptr<Tag>(new Sentence);
 }
-shared_ptr<Tag> GraphHandler::createDateTag()
+std::shared_ptr<Tag> GraphHandler::createFormalTag()
 {
-		return shared_ptr<Tag>(new Date);
+		return std::shared_ptr<Tag>(new Formal);
 }
-shared_ptr<Tag> GraphHandler::createIdTag()
+std::shared_ptr<Tag> GraphHandler::createDateTag()
 {
-		return shared_ptr<Tag>(new Id(m_builder));
+		return std::shared_ptr<Tag>(new Date);
 }
-shared_ptr<Tag> GraphHandler::createSizeTag()
+std::shared_ptr<Tag> GraphHandler::createIdTag()
 {
-		return shared_ptr<Tag>(new Size(m_builder));
+		return std::shared_ptr<Tag>(new Id(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createVersionTag()
+std::shared_ptr<Tag> GraphHandler::createSizeTag()
 {
-		return shared_ptr<Tag>(new Version(m_builder));
+		return std::shared_ptr<Tag>(new Size(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createSystemTag()
+std::shared_ptr<Tag> GraphHandler::createVersionTag()
 {
-		return shared_ptr<Tag>(new System);
+		return std::shared_ptr<Tag>(new Version(m_builder));
 }
-shared_ptr<Tag> GraphHandler::createGossipTag()
+std::shared_ptr<Tag> GraphHandler::createSystemTag()
 {
-		return shared_ptr<Tag>(new Gossip(m_builder));
+		return std::shared_ptr<Tag>(new System);
 }
-shared_ptr<Tag> GraphHandler::createAimlTag()
+std::shared_ptr<Tag> GraphHandler::createGossipTag()
 {
-		return shared_ptr<Tag>(new AIML(*this, m_rootNodeMapper));
+		return std::shared_ptr<Tag>(new Gossip(m_builder));
+}
+std::shared_ptr<Tag> GraphHandler::createAimlTag()
+{
+		return std::shared_ptr<Tag>(new AIML(*this, m_rootNodeMapper));
 }
 
 */

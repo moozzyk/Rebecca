@@ -24,12 +24,10 @@
 
 //Stl includes
 #include <map>
+#include <memory>
 
 //Rebecca includes
 #include <rebecca/adt/String.h>
-
-//Boost includes
-#include <boost/shared_ptr.hpp>
 
 namespace rebecca
 {
@@ -44,7 +42,6 @@ namespace adt
 
 
 	
-using namespace boost;
 using namespace rebecca::impl;
 
 template< typename T, typename U >
@@ -71,7 +68,7 @@ typedef Map<String, bool>::type MapStringBool;
 
 typedef Map<String, String>::type MapStringString;
 
-typedef Map<String, shared_ptr<NodeMapper> >::type MapStringSharedPtrNodeMapper;
+typedef Map<String, std::shared_ptr<NodeMapper> >::type MapStringSharedPtrNodeMapper;
 
 } //end of adt namespace
 

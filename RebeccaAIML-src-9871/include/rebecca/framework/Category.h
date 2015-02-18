@@ -41,8 +41,6 @@ namespace framework
 namespace impl
 {
 
-using namespace boost;
-
 /* 
  * Forward decleration
  */
@@ -112,7 +110,7 @@ class REBECCA_EXPORT Category : public InnerTopic
          * \exception InternalProgrammerErrorException is thrown 
 		 * if Tag is not PatternSideThat, Template, or Pattern.
 		 */
-		virtual void handleInnerTag(const shared_ptr<Tag> &tag) 
+		virtual void handleInnerTag(const std::shared_ptr<Tag> &tag) 
 			throw(InternalProgrammerErrorException &);
 
 		/**
@@ -186,7 +184,7 @@ class REBECCA_EXPORT Category : public InnerTopic
 		 * only if the error is so grave that the entire AIML 
 		 * engine has to be shut down.
 		 */
-		virtual const shared_ptr<Template> &getTemplate() 
+		virtual const std::shared_ptr<Template> &getTemplate() 
 			throw(InternalProgrammerErrorException &);
 
 		/** 
@@ -207,7 +205,7 @@ class REBECCA_EXPORT Category : public InnerTopic
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<CategoryImpl> m_pimpl;
+		std::shared_ptr<CategoryImpl> m_pimpl;
 };
 
 

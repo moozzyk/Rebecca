@@ -52,7 +52,7 @@ InnerTemplateListImpl::InnerTemplateListImpl() throw(InternalProgrammerErrorExce
 	LOG_BOT_METHOD("InnerTemplateListImpl::InnerTemplateListImpl()");
 	addInstanceOf("InnerTemplateListImpl");
 }
-void InnerTemplateListImpl::add(const shared_ptr<InnerTemplate> &tag) throw(InternalProgrammerErrorException &)
+void InnerTemplateListImpl::add(const std::shared_ptr<InnerTemplate> &tag) throw(InternalProgrammerErrorException &)
 {
 	m_pimpl->m_sentence.push_back(tag);
 }
@@ -66,7 +66,7 @@ StringPimpl InnerTemplateListImpl::getString() const
 void InnerTemplateListImpl::addCharacters(const StringPimpl &characters) throw(InternalProgrammerErrorException &)
 {
 	logging("<Input> characters:" + String(characters.c_str()));
-	add(shared_ptr<PlainWord>(new PlainWord(characters)));
+	add(std::shared_ptr<PlainWord>(new PlainWord(characters)));
 }
 
 InnerTemplateListImpl::~InnerTemplateListImpl()

@@ -79,7 +79,7 @@ StringPimpl Learn::getString() const
 		//absorb the xml error exception and keep going
 		logging(String("XMLErrorException caught:") + e.what());
 	}
-	catch(Exception &e)
+	catch(std::exception &e)
 	{
 		//absorb the general exception and keep going
 		logging(String("Exception caught:") + e.what());

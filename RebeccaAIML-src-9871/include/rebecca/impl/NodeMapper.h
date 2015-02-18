@@ -24,7 +24,6 @@
 
 //Boost includes
 #include <boost/algorithm/string.hpp>
-#include <boost/shared_ptr.hpp>
 
 //Rebecca includes
 #include <rebecca/framework/Template.h>
@@ -45,7 +44,7 @@ class GraphBuilderInternal;
 using namespace boost;
 using namespace rebecca::framework;
 	
-class NodeMapper : public enable_shared_from_this<NodeMapper>
+class NodeMapper : public std::enable_shared_from_this<NodeMapper>
 {	
 	/** 
 	 * Keeps track of all the operations you can 
@@ -63,10 +62,10 @@ class NodeMapper : public enable_shared_from_this<NodeMapper>
 			 * not add anything since that node is 
 			 * already there.
 			 */
-			shared_ptr<NodeMapper> &add(String &word);
-			shared_ptr<NodeMapper> getUnderScoreNode();
-			shared_ptr<NodeMapper> getWordNode(const String &word);
-			shared_ptr<NodeMapper> getStarNode();
+			std::shared_ptr<NodeMapper> &add(String &word);
+            std::shared_ptr<NodeMapper> getUnderScoreNode();
+            std::shared_ptr<NodeMapper> getWordNode(const String &word);
+            std::shared_ptr<NodeMapper> getStarNode();
 		private:
 			/** 
 			 * This is the underlying data structure
@@ -107,9 +106,9 @@ class NodeMapper : public enable_shared_from_this<NodeMapper>
          * Creates the other nodes along the way if they do 
 		 * not already exist along the way.
 		 */
-		void add(const shared_ptr<Template> &templateToAdd, QueueString &wordStack);
+        void add(const std::shared_ptr<Template> &templateToAdd, QueueString &wordStack);
 		
-		shared_ptr<NodeMapper> getNode(QueueString wordStack);
+        std::shared_ptr<NodeMapper> getNode(QueueString wordStack);
 		NodeMapper(GraphBuilderInternal &builder);
 		~NodeMapper();
 
@@ -126,7 +125,7 @@ class NodeMapper : public enable_shared_from_this<NodeMapper>
 		/**
 		 * The template composite.
 		 */
-		shared_ptr<Template> m_template;
+		std::shared_ptr<Template> m_template;
 
 		GraphBuilderInternal &m_builder;
 

@@ -104,14 +104,14 @@ void Condition::addCharacters(const StringPimpl &characters)
 	throw(InternalProgrammerErrorException &)
 {
 	logging("<Input> characters:" + String(characters.c_str()));
-	add(shared_ptr<PlainWord>(new PlainWord(characters)));
+	add(std::shared_ptr<PlainWord>(new PlainWord(characters)));
 }
 
 
-void Condition::add(const shared_ptr<InnerTemplate> &tag) 
+void Condition::add(const std::shared_ptr<InnerTemplate> &tag) 
 	throw(InternalProgrammerErrorException &)
 {
-	LOG_BOT_METHOD("void Condition::add(const shared_ptr<InnerTemplate> &tag)");
+	LOG_BOT_METHOD("void Condition::add(const std::shared_ptr<InnerTemplate> &tag)");
 	m_pimpl->m_sentence.push_back(tag);
 }
 
@@ -144,7 +144,7 @@ StringPimpl Condition::getString() const
 		{
 			if((*it)->instanceOf("Li"))
 			{
-				shared_ptr<Li> li = static_pointer_cast<Li>(*it);
+                std::shared_ptr<Li> li = std::static_pointer_cast<Li>(*it);
 				StringPimpl liPredicateName = li->getPredicateName();
 				StringPimpl liAimlPattern = li->getAimlPattern();
 

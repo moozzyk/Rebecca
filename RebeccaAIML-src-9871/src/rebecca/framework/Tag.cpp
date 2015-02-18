@@ -71,9 +71,9 @@ void Tag::addCharacters(const StringPimpl &characters) throw(InternalProgrammerE
 	LOG_BOT_METHOD("virtual void Tag::addCharacters(const StringPimpl &characters)");
 }
 
-void Tag::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
+void Tag::handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
 {
-	LOG_BOT_METHOD("virtual void Tag::handleInnerTag(const shared_ptr<Tag> &tag");
+	LOG_BOT_METHOD("virtual void Tag::handleInnerTag(const std::shared_ptr<Tag> &tag");
 }
 
 void Tag::setAttribute(const StringPimpl &name, const StringPimpl &value) throw(InternalProgrammerErrorException &)

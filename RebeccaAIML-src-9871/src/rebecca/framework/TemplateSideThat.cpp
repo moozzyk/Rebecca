@@ -85,7 +85,7 @@ StringPimpl TemplateSideThat::getString() const
 		m_pimpl->m_builder.getCallBacks().thatTagSizeExceeded();
 		return StringPimpl();
 	}
-	catch(Exception &e)
+	catch(std::exception &e)
 	{
 		logging(String("Fatal exception occured:") + e.what());
 		return StringPimpl();		

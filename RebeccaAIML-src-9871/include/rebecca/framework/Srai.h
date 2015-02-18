@@ -121,7 +121,7 @@ class REBECCA_EXPORT Srai : public InnerTemplateListImpl
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<SraiImpl> m_pimpl;
+		std::shared_ptr<SraiImpl> m_pimpl;
 };
 
 

@@ -22,12 +22,11 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#include <memory>
+
 //Rebecca includes
 #include <rebecca/Exceptions.h>
 #include <rebecca/adt/String.h>
-
-#include <boost/shared_ptr.hpp>
-using namespace boost;
 
 //Disable Windows VC 7.x warning about 
 //dllinterface with's
@@ -74,7 +73,7 @@ class IllegalArgumentExceptionImpl : public IllegalArgumentException
 		}
 
 	private:
-		shared_ptr<Exception> m_exception;
+		std::shared_ptr<Exception> m_exception;
 };
 
 class FileNotFoundExceptionImpl : public FileNotFoundException
@@ -94,7 +93,7 @@ class FileNotFoundExceptionImpl : public FileNotFoundException
 		}
 
 	private:
-		shared_ptr<Exception> m_exception;
+		std::shared_ptr<Exception> m_exception;
 
 };
 
@@ -114,7 +113,7 @@ class DirectoryNotFoundExceptionImpl : public DirectoryNotFoundException
 		}
 
 	private:
-		shared_ptr<Exception> m_exception;
+		std::shared_ptr<Exception> m_exception;
 };
 
 class InitializationExceptionImpl : public InitializationException
@@ -133,7 +132,7 @@ class InitializationExceptionImpl : public InitializationException
 		}
 
 	private:
-		shared_ptr<Exception> m_exception;
+		std::shared_ptr<Exception> m_exception;
 };
 
 class XMLErrorExceptionImpl : public XMLErrorException
@@ -152,7 +151,7 @@ class XMLErrorExceptionImpl : public XMLErrorException
 		}
 
 	private:
-		shared_ptr<Exception> m_exception;
+		std::shared_ptr<Exception> m_exception;
 };
 
 class REBECCA_EXPORT RecursionExceptionImpl : public RecursionException
@@ -171,7 +170,7 @@ class REBECCA_EXPORT RecursionExceptionImpl : public RecursionException
 		}
 
 	private:
-		shared_ptr<Exception> m_exception;
+		std::shared_ptr<Exception> m_exception;
 };
 
 class InternalProgrammerErrorExceptionImpl : public InternalProgrammerErrorException
@@ -190,7 +189,7 @@ class InternalProgrammerErrorExceptionImpl : public InternalProgrammerErrorExcep
 		}
 
 	private:
-		shared_ptr<Exception> m_exception;
+		std::shared_ptr<Exception> m_exception;
 };
 
 } //end of namespace impl

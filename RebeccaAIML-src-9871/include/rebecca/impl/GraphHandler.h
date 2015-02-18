@@ -32,10 +32,6 @@
 #include <rebecca/impl/NodeMapper.h>
 #include <rebecca/framework/Tag.h>
 
-//Boost includes
-#include <boost/shared_ptr.hpp>
-
-
 namespace rebecca
 {
 namespace impl
@@ -71,7 +67,7 @@ class GraphHandler : public HandlerBase
 	private:
 
 
-		shared_ptr<Tag> createTagClass(const String &className);
+		std::shared_ptr<Tag> createTagClass(const String &className);
 
 		SharedPtrStackTag m_tagStack;
 		String m_aimlVersion;
@@ -94,52 +90,52 @@ class GraphHandler : public HandlerBase
 		 * Current node being constructed.
 		 *
 		 */		
-		shared_ptr<NodeMapper> m_currentNode;
-		shared_ptr<Tag> m_currentStartElement;
+		std::shared_ptr<NodeMapper> m_currentNode;
+		std::shared_ptr<Tag> m_currentStartElement;
 
 		int m_size;
 
 		bool m_templateSideThat;
 
 /* Commented out.  Not fast enough to justify use
-		shared_ptr<Tag> createTagClassFromMap(const String &className);
-		typedef shared_ptr<Tag> (GraphHandler::*createTagMethod)();
+		std::shared_ptr<Tag> createTagClassFromMap(const String &className);
+		typedef std::shared_ptr<Tag> (GraphHandler::*createTagMethod)();
 		map<String, createTagMethod> m_tagLookup;
 		void init();
 
 		//All the function pointers
-		shared_ptr<Tag> createCategoryTag(); //1
-		shared_ptr<Tag> createPatternTag(); //2
-		shared_ptr<Tag> createTemplateTag(); //3
-		shared_ptr<Tag> createTopicTag(); //4
-		shared_ptr<Tag> createSraiTag();//5
-		shared_ptr<Tag> createThatTag();//6
-		shared_ptr<Tag> createStarTag();//7
-		shared_ptr<Tag> createSetTag();//8
-		shared_ptr<Tag> createGetTag();//9
-		shared_ptr<Tag> createThinkTag();//10
-		shared_ptr<Tag> createPersonTag();//11
-		shared_ptr<Tag> createBotTag();//12
-		shared_ptr<Tag> createConditionTag();//13
-		shared_ptr<Tag> createLiTag();//14
-		shared_ptr<Tag> createRandomTag();//15
-		shared_ptr<Tag> createSrTag();//16
-		shared_ptr<Tag> createInputTag();//17
-		shared_ptr<Tag> createThatStarTag();//18
-		shared_ptr<Tag> createTopicStarTag();//19
-		shared_ptr<Tag> createPerson2Tag();//20
-		shared_ptr<Tag> createGenderTag();//21
-		shared_ptr<Tag> createLowerCaseTag();//22
-		shared_ptr<Tag> createUpperCaseTag();//23
-		shared_ptr<Tag> createSentenceTag();//24
-		shared_ptr<Tag> createFormalTag();//25
-		shared_ptr<Tag> createDateTag();//26
-		shared_ptr<Tag> createIdTag();//27
-		shared_ptr<Tag> createSizeTag();//28
-		shared_ptr<Tag> createVersionTag();//29
-		shared_ptr<Tag> createSystemTag();//30
-		shared_ptr<Tag> createGossipTag();//31
-		shared_ptr<Tag> createAimlTag();//32
+		std::shared_ptr<Tag> createCategoryTag(); //1
+		std::shared_ptr<Tag> createPatternTag(); //2
+		std::shared_ptr<Tag> createTemplateTag(); //3
+		std::shared_ptr<Tag> createTopicTag(); //4
+		std::shared_ptr<Tag> createSraiTag();//5
+		std::shared_ptr<Tag> createThatTag();//6
+		std::shared_ptr<Tag> createStarTag();//7
+		std::shared_ptr<Tag> createSetTag();//8
+		std::shared_ptr<Tag> createGetTag();//9
+		std::shared_ptr<Tag> createThinkTag();//10
+		std::shared_ptr<Tag> createPersonTag();//11
+		std::shared_ptr<Tag> createBotTag();//12
+		std::shared_ptr<Tag> createConditionTag();//13
+		std::shared_ptr<Tag> createLiTag();//14
+		std::shared_ptr<Tag> createRandomTag();//15
+		std::shared_ptr<Tag> createSrTag();//16
+		std::shared_ptr<Tag> createInputTag();//17
+		std::shared_ptr<Tag> createThatStarTag();//18
+		std::shared_ptr<Tag> createTopicStarTag();//19
+		std::shared_ptr<Tag> createPerson2Tag();//20
+		std::shared_ptr<Tag> createGenderTag();//21
+		std::shared_ptr<Tag> createLowerCaseTag();//22
+		std::shared_ptr<Tag> createUpperCaseTag();//23
+		std::shared_ptr<Tag> createSentenceTag();//24
+		std::shared_ptr<Tag> createFormalTag();//25
+		std::shared_ptr<Tag> createDateTag();//26
+		std::shared_ptr<Tag> createIdTag();//27
+		std::shared_ptr<Tag> createSizeTag();//28
+		std::shared_ptr<Tag> createVersionTag();//29
+		std::shared_ptr<Tag> createSystemTag();//30
+		std::shared_ptr<Tag> createGossipTag();//31
+		std::shared_ptr<Tag> createAimlTag();//32
 */
 };
 

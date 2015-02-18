@@ -32,14 +32,12 @@
 #    pragma warning( disable : 4290 )
 #endif
 
+#include <memory>
+
 //rebecca includes
 #include <rebecca/StringPimpl.h>
 #include <rebecca/exports.h>
 #include <rebecca/Exceptions.h>
-
-//Boost includes
-#include <boost/shared_ptr.hpp>
-
 
 namespace rebecca
 {
@@ -47,8 +45,6 @@ namespace framework
 {
 namespace impl
 {
-
-using namespace boost;
 
 /*
  * Forward declerations
@@ -139,7 +135,7 @@ class REBECCA_EXPORT Tag
 		 * only if the error is so grave that the entire AIML 
 		 * engine has to be shut down.
 		 */
-		virtual void handleInnerTag(const shared_ptr<Tag> &tag) 
+		virtual void handleInnerTag(const std::shared_ptr<Tag> &tag) 
 			throw(InternalProgrammerErrorException &); 
 
 		/** 
@@ -240,7 +236,7 @@ class REBECCA_EXPORT Tag
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<TagImpl> m_pimpl;
+		std::shared_ptr<TagImpl> m_pimpl;
 
 		/**
 		 * The assignment operator.

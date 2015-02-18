@@ -35,18 +35,12 @@
 //Rebecca includes
 #include <rebecca/framework/InnerTemplateListImpl.h>
 
-//Boost includes
-#include <boost/enable_shared_from_this.hpp>
-#include <boost/shared_ptr.hpp>
-
 namespace rebecca
 {
 namespace framework
 {
 namespace impl
 {
-
-using namespace boost;
 
 /*
  * Forward declerations
@@ -75,7 +69,7 @@ class ThinkImpl;
  * attributes, and all inner Tags will
  * go through methods of this class.
  */
-class REBECCA_EXPORT Think : public InnerTemplateListImpl, public enable_shared_from_this<Think>
+class REBECCA_EXPORT Think : public InnerTemplateListImpl, public std::enable_shared_from_this<Think>
 {
 	public:
 
@@ -119,7 +113,7 @@ class REBECCA_EXPORT Think : public InnerTemplateListImpl, public enable_shared_
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<ThinkImpl> m_pimpl;
+		std::shared_ptr<ThinkImpl> m_pimpl;
 
 };
 

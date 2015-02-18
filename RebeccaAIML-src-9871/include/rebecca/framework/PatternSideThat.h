@@ -36,9 +36,6 @@
 #include <rebecca/framework/InnerCategory.h>
 #include <rebecca/framework/InnerTemplate.h>
 
-//Boost includes
-#include <boost/enable_shared_from_this.hpp>
-
 namespace rebecca
 {
 namespace framework
@@ -63,8 +60,6 @@ namespace impl
 class PatternSideThatImpl;
 class GraphBuilderFramework;	
 
-using boost::enable_shared_from_this;
-
 /**
  * AIML class that represents the 
  * AIML XML tag "that" that is a 
@@ -77,7 +72,7 @@ using boost::enable_shared_from_this;
  * attributes, and all inner Tags will
  * go through methods of this class.
  */
-class REBECCA_EXPORT PatternSideThat : public InnerCategory, public enable_shared_from_this<PatternSideThat>
+class REBECCA_EXPORT PatternSideThat : public InnerCategory, public std::enable_shared_from_this<PatternSideThat>
 {
 	public:
 
@@ -164,7 +159,7 @@ class REBECCA_EXPORT PatternSideThat : public InnerCategory, public enable_share
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<PatternSideThatImpl> m_pimpl;
+		std::shared_ptr<PatternSideThatImpl> m_pimpl;
 };
 
 } //end of namespace impl

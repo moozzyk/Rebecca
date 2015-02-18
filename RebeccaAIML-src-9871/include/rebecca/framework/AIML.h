@@ -132,7 +132,7 @@ class REBECCA_EXPORT AIML : public Tag
 		 * only if the error is so grave that the entire AIML 
 		 * engine has to be shut down.
 		 */
-		virtual void handleInnerTag(const shared_ptr<Tag> &tag) 
+		virtual void handleInnerTag(const std::shared_ptr<Tag> &tag) 
 			throw(InternalProgrammerErrorException &);
 
 		/** 
@@ -153,7 +153,7 @@ class REBECCA_EXPORT AIML : public Tag
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<AIMLImpl> m_pimpl;
+		std::shared_ptr<AIMLImpl> m_pimpl;
 };
 
 

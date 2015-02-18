@@ -75,7 +75,7 @@ Get::~Get()
 
 void Get::setAttribute(const StringPimpl &name, const StringPimpl &value) throw(InternalProgrammerErrorException &)
 {
-	LOG_BOT_METHOD("void handleInnerTag(const shared_ptr<Tag> &tag)");
+	LOG_BOT_METHOD("void handleInnerTag(const std::shared_ptr<Tag> &tag)");
 	String nameString(name.c_str());
 	String valueString(value.c_str());
 	logging("<Input> name:" + nameString);

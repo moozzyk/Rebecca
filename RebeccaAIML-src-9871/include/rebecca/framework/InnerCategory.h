@@ -143,7 +143,7 @@ class REBECCA_EXPORT InnerCategory : public InnerTopic
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<InnerCategoryImpl> m_pimpl;
+		std::shared_ptr<InnerCategoryImpl> m_pimpl;
 };
 
 

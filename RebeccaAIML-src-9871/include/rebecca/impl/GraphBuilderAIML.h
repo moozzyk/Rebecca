@@ -316,12 +316,12 @@ class GraphBuilderAIML : public GraphBuilderInternal
 		VectorSubstitutionRegEx m_personSubstitutions;
 		VectorSubstitutionRegEx m_person2Substitutions;
 
-		shared_ptr<SAXParser> m_AIMLparser;
-		shared_ptr<SAXParser> m_configurationParser;
-		shared_ptr<DocumentHandler> m_AIMLDocumentHandler;
-		shared_ptr<DocumentHandler> m_configurationDocumentHandler;
-		shared_ptr<ErrorHandler> m_AIMLErrorHandler;
-		shared_ptr<ErrorHandler> m_configurationErrorHandler;
+		std::shared_ptr<SAXParser> m_AIMLparser;
+		std::shared_ptr<SAXParser> m_configurationParser;
+		std::shared_ptr<DocumentHandler> m_AIMLDocumentHandler;
+		std::shared_ptr<DocumentHandler> m_configurationDocumentHandler;
+		std::shared_ptr<ErrorHandler> m_AIMLErrorHandler;
+		std::shared_ptr<ErrorHandler> m_configurationErrorHandler;
 
 		String m_sentenceSplitters;
 		

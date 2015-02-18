@@ -117,7 +117,7 @@ class REBECCA_EXPORT Formal : public InnerTemplateListImpl
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<FormalImpl> m_pimpl;
+		std::shared_ptr<FormalImpl> m_pimpl;
 
 };
 

@@ -117,7 +117,7 @@ class REBECCA_EXPORT Topic : public InnerAIML
          * \exception InternalProgrammerErrorException is thrown if the tag is not 
 		 * an instance of Category.
 		 */
-		virtual void handleInnerTag(const shared_ptr<Tag> &tag) 
+		virtual void handleInnerTag(const std::shared_ptr<Tag> &tag) 
 			throw(InternalProgrammerErrorException &);
 
 		/**
@@ -144,7 +144,7 @@ class REBECCA_EXPORT Topic : public InnerAIML
 		virtual ~Topic();
 
 	private:
-		shared_ptr<TopicImpl> m_pimpl;
+		std::shared_ptr<TopicImpl> m_pimpl;
 };
 
 } //end of namespace impl

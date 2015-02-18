@@ -24,7 +24,6 @@
 #include <boost/filesystem/fstream.hpp>    
 #include <boost/filesystem/exception.hpp>
 #include <boost/algorithm/string.hpp>
-#include <boost/scoped_ptr.hpp>
 #include <boost/tokenizer.hpp>
 #include <boost/algorithm/string_regex.hpp>
 #include <sstream>
@@ -108,7 +107,7 @@ GraphBuilderAIML::GraphBuilderAIML()
 		String msg("XMLException during initalization: " + message.getString());
 		throw InitializationExceptionImpl(msg.c_str());
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -134,7 +133,7 @@ GraphBuilderAIML::GraphBuilderAIML(const GraphBuilderAIML &builder)
 		LOG_BOT_METHOD("GraphBuilderAIML::GraphBuilderAIML(const GraphBuilderAIML &builder)");	
 		init();
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -170,7 +169,7 @@ void GraphBuilderAIML::init()
 		m_AIMLparser->setErrorHandler(m_AIMLErrorHandler.get());
 		m_configurationParser->setErrorHandler(m_configurationErrorHandler.get());
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -204,7 +203,7 @@ void GraphBuilderAIML::addFile(const char * const file)
 			m_filesGraphed.insert(pair<String, bool>(nativeFile, false));
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -270,7 +269,7 @@ void GraphBuilderAIML::addDirectory(const char * const directory, const char * c
 		logging("FileNotFoundException, you should not be here.");
 		throw IllegalArgumentExceptionImpl("File not found exception occured.  You must have passed a bad directory in.");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -284,7 +283,7 @@ void GraphBuilderAIML::addString(const char * const stringContainingAIML)
 		String stringToInsert = m_aimlHeader + stringContainingAIML + m_aimlFooter;
 		m_stringsGraphed.insert(pair<String, bool>(stringToInsert, false));
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -297,7 +296,7 @@ void GraphBuilderAIML::setAddStringAIMLHeader(const char * const aimlHeader)
 	{
 		m_aimlHeader = aimlHeader;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -310,7 +309,7 @@ void GraphBuilderAIML::setAddStringAIMLFooter(const char * const aimlFooter)
 	{
 		m_aimlFooter = aimlFooter;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -326,7 +325,7 @@ void GraphBuilderAIML::setAIMLSchema(const char * const schema)
 		logging("<Input> schema:" + String(schema));
 		m_aimlSchema = schema;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -341,7 +340,7 @@ void GraphBuilderAIML::setCommonTypesSchema(const char * const schema)
 		logging("<Input> schema:" + String(schema));
 		m_commonTypesSchema = schema;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -516,7 +515,7 @@ StringPimpl GraphBuilderAIML::getResponse(const char * const input)
 		createGraph();
 		return s;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -540,7 +539,7 @@ void GraphBuilderAIML::setAIMLValidation(bool trueOrFalse)
 			m_setAIMLValidation = false;
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -590,7 +589,7 @@ void GraphBuilderAIML::setThat(const char * const that)
 			}
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -605,7 +604,7 @@ void GraphBuilderAIML::setTopic(const char * const topic)
 		removePunctuation(topicToStore);
 		setPredicate("TOPIC", topicToStore.c_str());
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -618,7 +617,7 @@ StringPimpl GraphBuilderAIML::getThat() const
 	{
 		return StringPimpl(m_thatString.c_str());
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -631,7 +630,7 @@ StringPimpl GraphBuilderAIML::getTopic() const
 	{
 		return getPredicate("topic");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -651,7 +650,7 @@ StringPimpl GraphBuilderAIML::getThatStar(const unsigned int &index) const
 			//To be on the safe side let us still use the exception throwing "at"
 			return m_thatStar.at(m_thatStar.size() - index).c_str();
 		}
-		catch(exception &e)
+		catch(std::exception &e)
 		{
 			throw ExceptionImpl(e.what());
 		}
@@ -672,7 +671,7 @@ StringPimpl GraphBuilderAIML::getTopicStar(const unsigned int &index) const
 			//To be on the safe side let us still use the exception throwing "at"
 			return m_topicStar.at(m_topicStar.size() - index).c_str();
 		}
-		catch(exception &e)
+		catch(std::exception &e)
 		{
 			throw ExceptionImpl(e.what());
 		}
@@ -735,7 +734,7 @@ void GraphBuilderAIML::setPredicate(const char * const name, const char * const 
 			m_predicates[upperCaseName] = value;
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -758,7 +757,7 @@ bool GraphBuilderAIML::predicateMatch(const char * const predicateName, const ch
 			typedef tokenizer<char_separator<char> > tokenize;
 			typedef tokenizer<char_separator<char> >::const_iterator CI;
 
-			shared_ptr<Template> templateToAdd(new Template);
+			std::shared_ptr<Template> templateToAdd(new Template);
 			templateToAdd->addCharacters(predicateName);
 			QueueString wordStack;
 
@@ -798,7 +797,7 @@ bool GraphBuilderAIML::predicateMatch(const char * const predicateName, const ch
 			return false;
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -829,7 +828,7 @@ StringPimpl GraphBuilderAIML::getPredicate(const char * const name) const
 			return String().c_str();
 		}	
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{	
 		throw ExceptionImpl(e.what());
 	}
@@ -890,7 +889,7 @@ void GraphBuilderAIML::createGraph()
 		m_stringsGraphed.clear();
 		m_filesGraphed.clear();
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -972,7 +971,7 @@ throw(IllegalArgumentException &, Exception &)
 		{
 			return m_star.at(m_star.size() - index).c_str();
 		}
-		catch(exception &e)
+		catch(std::exception &e)
 		{
 			throw ExceptionImpl(e.what());
 		}
@@ -1042,7 +1041,7 @@ GraphBuilder *GraphBuilderAIML::clone()
 		LOG_BOT_METHOD("GraphBuilder *GraphBuilderAIML::clone()");
 		return new GraphBuilderAIML(*this);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1076,7 +1075,7 @@ StringPimpl GraphBuilderAIML::getPreviousBotResponse(const unsigned int &previou
 			}
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1111,7 +1110,7 @@ StringPimpl GraphBuilderAIML::getPreviousBotResponsePunctuation(const unsigned i
 			}
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1136,7 +1135,7 @@ StringPimpl GraphBuilderAIML::getPreviousUserInput(const unsigned int &previousU
 			return StringPimpl(m_previousUserInput.at(previousUserInput - 1).c_str());
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1168,7 +1167,7 @@ StringPimpl GraphBuilderAIML::getBotPredicate(const char * const name) const
 			return String().c_str();
 		}	
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1188,7 +1187,7 @@ void GraphBuilderAIML::setBotPredicate(const char * const name, const char * con
 
 		m_botPredicates[upperCaseName] = value;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1206,7 +1205,7 @@ void GraphBuilderAIML::setBotConfigurationSchema(const char *const schema)
 		logging("file exists, using it as the schema");
 		m_configurationSchema = schema;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1228,7 +1227,7 @@ void GraphBuilderAIML::setBotConfigurationValidation(const bool trueOrFalse)
 			m_doConfigurationValidation = false;
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1246,7 +1245,7 @@ void GraphBuilderAIML::parseSubstitutionFile(const char *const fileName)
 		
 		parseConfigurationFile(fileName);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1267,7 +1266,7 @@ void GraphBuilderAIML::setInputSubstitution(const char *const find, const char *
 	{		
 		throw IllegalArgumentExceptionImpl("Run time error in the find regular expression");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1304,7 +1303,7 @@ void GraphBuilderAIML::setGenderSubstitution(const char *const find, const char 
 	{
 		throw IllegalArgumentExceptionImpl("Run time error in the find regular expression");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1325,7 +1324,7 @@ void GraphBuilderAIML::setPersonSubstitution(const char *const find, const char 
 	{
 		throw IllegalArgumentExceptionImpl("Run time error in the find regular expression");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1346,7 +1345,7 @@ void GraphBuilderAIML::setPerson2Substitution(const char *const find, const char
 	{
 		throw IllegalArgumentExceptionImpl("Run time error in the find regular expression");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1361,7 +1360,7 @@ StringPimpl GraphBuilderAIML::genderSubstitute(const StringPimpl &input) const
 	{
 		return substitute(input, m_genderSubstitutions);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1376,7 +1375,7 @@ StringPimpl GraphBuilderAIML::personSubstitute(const StringPimpl &input) const
 	{
 		return substitute(input, m_personSubstitutions);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1393,7 +1392,7 @@ StringPimpl GraphBuilderAIML::person2Substitute(const StringPimpl &input) const
 	{
 		return substitute(input, m_person2Substitutions);
 	} 
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1560,7 +1559,7 @@ void GraphBuilderAIML::parsePropertiesFile(const char *const fileName)
 
 		parseConfigurationFile(fileName);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1576,7 +1575,7 @@ void GraphBuilderAIML::parseSentenceSplitterFile(const char *const fileName)
 
 		parseConfigurationFile(fileName);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1589,7 +1588,7 @@ void GraphBuilderAIML::setSentenceSplitter(const char *const splitter)
 	{
 		m_sentenceSplitters += splitter;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1602,7 +1601,7 @@ int GraphBuilderAIML::getSize() const
 	{
 		return m_size;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1622,7 +1621,7 @@ StringPimpl GraphBuilderAIML::getVersion() const
 	{
 		return ".9871";
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1635,7 +1634,7 @@ void GraphBuilderAIML::setCallBacks(CallBacks *callBacks)
 	{
 		m_callBacks = callBacks;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1648,7 +1647,7 @@ void GraphBuilderAIML::storeGossip(const char * const gossip)
 	{
 		m_callBacks->storeGossip(gossip);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1661,7 +1660,7 @@ CallBacks &GraphBuilderAIML::getCallBacks()
 	{
 		return *m_callBacks;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1674,7 +1673,7 @@ StringPimpl GraphBuilderAIML::getId() const
 	{
 		return m_id.c_str();
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1687,7 +1686,7 @@ void GraphBuilderAIML::setId(const char * const id)
 	{
 		m_id = id;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1735,7 +1734,7 @@ StringPimpl GraphBuilderAIML::checkedInfiniteLoopGetResponse(const StringPimpl &
 
 		return response;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}

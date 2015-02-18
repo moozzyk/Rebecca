@@ -45,7 +45,6 @@ namespace impl
 
 XERCES_CPP_NAMESPACE_USE;
 using namespace rebecca::framework;
-using namespace boost;
 
 /*
  * Forward declerations
@@ -60,7 +59,7 @@ class ConfigurationHandler : public HandlerBase
 		{
 			public:
 				Input(GraphBuilderInternal &builder);
-				virtual void handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &);
+				virtual void handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &);
 		
 			private:
 				GraphBuilderInternal &m_builder;
@@ -82,7 +81,7 @@ class ConfigurationHandler : public HandlerBase
 		{
 			public:
 				Gender(GraphBuilderInternal &builder);
-				virtual void handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &);
+				virtual void handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &);
 			private:
 				GraphBuilderInternal &m_builder;
 
@@ -92,7 +91,7 @@ class ConfigurationHandler : public HandlerBase
 		{
 			public:
 				Person(GraphBuilderInternal &builder);
-				virtual void handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &);
+				virtual void handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &);
 			private:
 				GraphBuilderInternal &m_builder;
 
@@ -102,7 +101,7 @@ class ConfigurationHandler : public HandlerBase
 		{
 			public:
 				Person2(GraphBuilderInternal &builder);
-				virtual void handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &);
+				virtual void handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &);
 			private:
 				GraphBuilderInternal &m_builder;
 		};
@@ -117,7 +116,7 @@ class ConfigurationHandler : public HandlerBase
 		{
 			public:
 				SentenceSplitters(GraphBuilderInternal &builder);
-				virtual void handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &);
+				virtual void handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &);
 
 			private:
 				GraphBuilderInternal &m_builder;
@@ -165,11 +164,11 @@ class ConfigurationHandler : public HandlerBase
 		virtual void endElement(const XMLCh *const name);
 		virtual void endDocument();
 
-		shared_ptr<Tag> createTagClass(const String &className);
+		std::shared_ptr<Tag> createTagClass(const String &className);
 
 	private:
 		SharedPtrStackTag m_tagStack;
-		shared_ptr<Tag> m_currentStartElement;
+		std::shared_ptr<Tag> m_currentStartElement;
 		GraphBuilderInternal &m_builder;
 };
 

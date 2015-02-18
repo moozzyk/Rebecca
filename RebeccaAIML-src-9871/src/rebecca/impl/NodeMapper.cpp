@@ -26,8 +26,6 @@
 #include <rebecca/adt/Map.h>
 
 //Boost includes
-#include <boost/shared_ptr.hpp>
-#include <boost/scoped_ptr.hpp>
 #include <boost/tokenizer.hpp>
 #include <boost/algorithm/string.hpp>
 using namespace boost;
@@ -49,9 +47,9 @@ NodeMapper::NodeMapper(GraphBuilderInternal &builder)
 	LOG_BOT_METHOD("NodeMapper::NodeMapper(GraphBuilderInternal &builder)");
 }
 
-void NodeMapper::add(const shared_ptr<Template> &templateToAdd, QueueString &wordStack)
+void NodeMapper::add(const std::shared_ptr<Template> &templateToAdd, QueueString &wordStack)
 {
-	LOG_BOT_METHOD("void NodeMapper::add(const shared_ptr<Template> &templateToAdd, StackString &wordStack)");
+	LOG_BOT_METHOD("void NodeMapper::add(const std::shared_ptr<Template> &templateToAdd, StackString &wordStack)");
 
 	if(wordStack.empty())
 	{
@@ -63,7 +61,7 @@ void NodeMapper::add(const shared_ptr<Template> &templateToAdd, QueueString &wor
 		//This is actually a reference to a node inside of the map.
 		//It is faster to use a reference inside of the map and change the reference
 		//inside of the map directly then to be making tons of copies.
-		shared_ptr<NodeMapper> &node = m_links.add(wordStack.front());
+		std::shared_ptr<NodeMapper> &node = m_links.add(wordStack.front());
 		wordStack.pop();
 		
 		node->add(templateToAdd, wordStack);
@@ -123,7 +121,7 @@ String NodeMapper::getTemplateString(const String &path)
 		wordStack.push(*it);
 	}
 
-	shared_ptr<NodeMapper> node = getNode(wordStack);
+    std::shared_ptr<NodeMapper> node = getNode(wordStack);
 
 	if(node.get())
 	{
@@ -167,12 +165,12 @@ NodeMapper::TopicHelper::~TopicHelper()
 	m_builder.setUseThatStar();
 }
 
-shared_ptr<NodeMapper> NodeMapper::getNode(QueueString wordStack)
+std::shared_ptr<NodeMapper> NodeMapper::getNode(QueueString wordStack)
 {
 	LOG_BOT_METHOD("NodeMapper &NodeMapper::Links::getNode(QueueString wordStack)");
 	String star;
-	scoped_ptr<ThatHelper> scopedThat;
-	scoped_ptr<TopicHelper> scopedTopic;
+	std::unique_ptr<ThatHelper> scopedThat;
+    std::unique_ptr<TopicHelper> scopedTopic;
 
 	if(wordStack.empty())
 	{
@@ -183,7 +181,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(QueueString wordStack)
 		}
 		else
 		{
-			return shared_ptr<NodeMapper>();
+			return std::shared_ptr<NodeMapper>();
 		}
 	}
 	else
@@ -201,7 +199,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(QueueString wordStack)
 
 		wordStack.pop();
 
-		shared_ptr<NodeMapper> node = m_links.getUnderScoreNode();
+		std::shared_ptr<NodeMapper> node = m_links.getUnderScoreNode();
 
 		if(node.get())
 		{	
@@ -210,7 +208,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(QueueString wordStack)
 
 			while(!tempStack.empty())
 			{	
-				shared_ptr<NodeMapper> returnNode = node->getNode(tempStack);
+				std::shared_ptr<NodeMapper> returnNode = node->getNode(tempStack);
 
 				if(returnNode.get())
 				{	
@@ -261,7 +259,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(QueueString wordStack)
 
 			while(!tempStack.empty())
 			{   
-				shared_ptr<NodeMapper> returnNode = node->getNode(tempStack);
+				std::shared_ptr<NodeMapper> returnNode = node->getNode(tempStack);
 				
 				if(returnNode.get())
 				{
@@ -282,13 +280,13 @@ shared_ptr<NodeMapper> NodeMapper::getNode(QueueString wordStack)
 			}
 			else
 			{
-				return shared_ptr<NodeMapper>();
+				return std::shared_ptr<NodeMapper>();
 			}
 		}
 		else
 		{
 			//Doesn't match _, word, or star
-			return shared_ptr<NodeMapper>();
+			return std::shared_ptr<NodeMapper>();
 		}
 	}
 }
@@ -298,9 +296,9 @@ NodeMapper::Links::Links(GraphBuilderInternal &builder)
 	LOG_BOT_METHOD("Links::Links(GraphBuilderInternal &builder)");
 }
 
-shared_ptr<NodeMapper> NodeMapper::Links::getWordNode(const String &word)
+std::shared_ptr<NodeMapper> NodeMapper::Links::getWordNode(const String &word)
 {
-	LOG_BOT_METHOD("shared_ptr<NodeMapper> NodeMapper::getWordNode(const String &word)");
+	LOG_BOT_METHOD("std::shared_ptr<NodeMapper> NodeMapper::getWordNode(const String &word)");
 	logging("<Input>: " + word);
 
 	//match using case insensitiviy.
@@ -319,13 +317,13 @@ shared_ptr<NodeMapper> NodeMapper::Links::getWordNode(const String &word)
 	else
 	{
 		logging("Did not find the node associated with this word");
-		return shared_ptr<NodeMapper>();
+		return std::shared_ptr<NodeMapper>();
 	}
 }
 
-shared_ptr<NodeMapper> &NodeMapper::Links::add(String &word)
+std::shared_ptr<NodeMapper> &NodeMapper::Links::add(String &word)
 {
-	LOG_BOT_METHOD("shared_ptr<NodeMapper> NodeMapper::Links::add(String word)");
+	LOG_BOT_METHOD("std::shared_ptr<NodeMapper> NodeMapper::Links::add(String word)");
 	logging("<Input>: " + word);
 
 	/*
@@ -348,19 +346,19 @@ shared_ptr<NodeMapper> &NodeMapper::Links::add(String &word)
 	{
 		logging("Word is not already a node.  Creating a node for it."); 
 		logging("returning the reference to that node.");
-		return m_nodeLink[word] = shared_ptr<NodeMapper>(new NodeMapper(m_builder));
+		return m_nodeLink[word] = std::shared_ptr<NodeMapper>(new NodeMapper(m_builder));
 	}
 }
 
-shared_ptr<NodeMapper> NodeMapper::Links::getUnderScoreNode()
+std::shared_ptr<NodeMapper> NodeMapper::Links::getUnderScoreNode()
 {
-	LOG_BOT_METHOD("shared_ptr<NodeMapper> NodeMapper::Links::getUnderScore()");
+	LOG_BOT_METHOD("std::shared_ptr<NodeMapper> NodeMapper::Links::getUnderScore()");
 	return getWordNode("_");
 }
 
-shared_ptr<NodeMapper> NodeMapper::Links::getStarNode()
+std::shared_ptr<NodeMapper> NodeMapper::Links::getStarNode()
 {
-	LOG_BOT_METHOD("shared_ptr<NodeMapper> NodeMapper::Links::getUnderScore()");
+	LOG_BOT_METHOD("std::shared_ptr<NodeMapper> NodeMapper::Links::getUnderScore()");
 	return getWordNode("*");
 }
 

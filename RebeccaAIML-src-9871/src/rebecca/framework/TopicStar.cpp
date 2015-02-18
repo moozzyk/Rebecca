@@ -104,7 +104,7 @@ StringPimpl TopicStar::getString() const
 		m_pimpl->m_builder.getCallBacks().topicStarTagSizeExceeded();
 		return StringPimpl();
 	}
-	catch(Exception &e)
+	catch(std::exception &e)
 	{
 		logging(String("Another exception occured, returning empty string:") + e.what());
 		return StringPimpl();

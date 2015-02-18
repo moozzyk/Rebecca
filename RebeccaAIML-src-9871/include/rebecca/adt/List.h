@@ -24,9 +24,7 @@
 
 //Stl includes
 #include <list>
-
-//Boost includes
-#include <boost/shared_ptr.hpp>
+#include <memory>
 
 namespace rebecca
 {
@@ -48,7 +46,6 @@ using rebecca::framework::impl::Li;
 namespace adt
 {
 
-using namespace boost; 
 using namespace rebecca::impl;
 
 template< typename T >
@@ -57,8 +54,8 @@ struct List
 	typedef std::list<T> type;
 };
 
-typedef List<shared_ptr<InnerTemplate> >::type ListSharedPtrInnerTemplate;
-typedef List<shared_ptr<Li> >::type ListSharedPtrLi;
+typedef List<std::shared_ptr<InnerTemplate> >::type ListSharedPtrInnerTemplate;
+typedef List<std::shared_ptr<Li> >::type ListSharedPtrLi;
 
 } //end of adt namespace
 

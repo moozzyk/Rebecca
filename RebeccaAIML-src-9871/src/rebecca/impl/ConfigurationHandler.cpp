@@ -33,9 +33,6 @@
 #include <iostream>
 using namespace std;
 
-#include <boost/shared_ptr.hpp>
-using namespace boost;
-
 namespace rebecca
 {
 namespace impl
@@ -118,7 +115,7 @@ void ConfigurationHandler::endElement(const XMLCh *const name)
 
 		if(!m_tagStack.empty())
 		{
-			shared_ptr<Tag> tag = m_tagStack.top();
+			std::shared_ptr<Tag> tag = m_tagStack.top();
 			m_tagStack.pop();
 
 			if(!m_tagStack.empty())
@@ -151,54 +148,54 @@ void ConfigurationHandler::endDocument()
 }
 
 
-shared_ptr<Tag> ConfigurationHandler::createTagClass(const String &className)
+std::shared_ptr<Tag> ConfigurationHandler::createTagClass(const String &className)
 {
-	LOG_BOT_METHOD("shared_ptr<Tag> ConfigurationHandler::createTagClass(const String &className)");
+	LOG_BOT_METHOD("std::shared_ptr<Tag> ConfigurationHandler::createTagClass(const String &className)");
 
 	if(className == "input")
 	{
-		return shared_ptr<Tag>(new Input(m_builder));
+		return std::shared_ptr<Tag>(new Input(m_builder));
 	}
 	else if(className == "substitute")
 	{
-		return shared_ptr<Substitute>(new Substitute);
+		return std::shared_ptr<Substitute>(new Substitute);
 	}
 	else if(className == "gender")
 	{
-		return shared_ptr<Gender>(new Gender(m_builder));
+		return std::shared_ptr<Gender>(new Gender(m_builder));
 	}
 	else if(className == "person")
 	{
-		return shared_ptr<Person>(new Person(m_builder));
+		return std::shared_ptr<Person>(new Person(m_builder));
 	}
 	else if(className == "person2")
 	{
-		return shared_ptr<Person2>(new Person2(m_builder));
+		return std::shared_ptr<Person2>(new Person2(m_builder));
 	}
 	else if(className == "substitutions")
 	{
-		return shared_ptr<Substitutions>(new Substitutions);
+		return std::shared_ptr<Substitutions>(new Substitutions);
 	}
 	else if(className == "sentence-splitters")
 	{
-		return shared_ptr<SentenceSplitters>(new SentenceSplitters(m_builder));
+		return std::shared_ptr<SentenceSplitters>(new SentenceSplitters(m_builder));
 	}
 	else if(className == "splitter")
 	{
-		return shared_ptr<Splitter>(new Splitter);
+		return std::shared_ptr<Splitter>(new Splitter);
 	}
 	else if(className == "properties")
 	{
-		return shared_ptr<Properties>(new Properties);
+		return std::shared_ptr<Properties>(new Properties);
 	}
 	else if(className == "property")
 	{
-		return shared_ptr<Property>(new Property(m_builder));
+		return std::shared_ptr<Property>(new Property(m_builder));
 	}
 	else
 	{
 		logging("Warning, unknown className of: " + className);
-		return shared_ptr<Substitutions>(new Substitutions);
+		return std::shared_ptr<Substitutions>(new Substitutions);
 	}
 }
 
@@ -206,13 +203,13 @@ ConfigurationHandler::Input::Input(GraphBuilderInternal &builder)
 	: m_builder(builder)
 { }
 
-void ConfigurationHandler::Input::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
+void ConfigurationHandler::Input::handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
 {
-	LOG_BOT_METHOD("void ConfigurationHandler::Input::handleInnerTag(const shared_ptr<Tag> &tag)");
+	LOG_BOT_METHOD("void ConfigurationHandler::Input::handleInnerTag(const std::shared_ptr<Tag> &tag)");
 
 	try
 	{
-		shared_ptr<Substitute> substitute = dynamic_pointer_cast<Substitute>(tag);
+		std::shared_ptr<Substitute> substitute = dynamic_pointer_cast<Substitute>(tag);
 		if(substitute.get() == 0)
 		{
 			throw bad_cast();
@@ -225,7 +222,7 @@ void ConfigurationHandler::Input::handleInnerTag(const shared_ptr<Tag> &tag) thr
 	catch(bad_cast &)
 	{
 		logging("Internal programmer error.  Bad cast, this is not a InnerCategory");
-		throw InternalProgrammerErrorExceptionImpl("[void ConfigurationHandler::Input::handleInnerTag(const shared_ptr<Tag> &tag)] Bad cast, this is not a InnerCategory"); 
+		throw InternalProgrammerErrorExceptionImpl("[void ConfigurationHandler::Input::handleInnerTag(const std::shared_ptr<Tag> &tag)] Bad cast, this is not a InnerCategory"); 
 	}
 }
 ConfigurationHandler::Gender::Gender(GraphBuilderInternal &builder)
@@ -246,11 +243,11 @@ ConfigurationHandler::Person2::Person2(GraphBuilderInternal &builder)
 
 }
 
-void ConfigurationHandler::Gender::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
+void ConfigurationHandler::Gender::handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
 {
 	try
 	{
-		shared_ptr<Substitute> substitute = dynamic_pointer_cast<Substitute>(tag);
+		std::shared_ptr<Substitute> substitute = dynamic_pointer_cast<Substitute>(tag);
 		if(substitute.get() == 0)
 		{
 			throw bad_cast();
@@ -263,15 +260,15 @@ void ConfigurationHandler::Gender::handleInnerTag(const shared_ptr<Tag> &tag) th
 	catch(bad_cast &)
 	{
 		logging("Internal programmer error.  Bad cast, this is not a InnerCategory");
-	throw InternalProgrammerErrorExceptionImpl("[void ConfigurationHandler::Gender::handleInnerTag(const shared_ptr<Tag> &tag)], Bad cast, this is not a InnerCategory");
+	throw InternalProgrammerErrorExceptionImpl("[void ConfigurationHandler::Gender::handleInnerTag(const std::shared_ptr<Tag> &tag)], Bad cast, this is not a InnerCategory");
 	}
 }
 
-void ConfigurationHandler::Person::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
+void ConfigurationHandler::Person::handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
 {
 	try
 	{
-		shared_ptr<Substitute> substitute = dynamic_pointer_cast<Substitute>(tag);
+		std::shared_ptr<Substitute> substitute = dynamic_pointer_cast<Substitute>(tag);
 		if(substitute.get() == 0)
 		{
 			throw bad_cast();
@@ -284,15 +281,15 @@ void ConfigurationHandler::Person::handleInnerTag(const shared_ptr<Tag> &tag) th
 	catch(bad_cast &)
 	{
 		logging("Internal programmer error.  Bad cast, this is not a InnerCategory");
-		throw InternalProgrammerErrorExceptionImpl("[void ConfigurationHandler::Person::handleInnerTag(const shared_ptr<Tag> &tag)], Bad cast, this is not a InnerCategory");
+		throw InternalProgrammerErrorExceptionImpl("[void ConfigurationHandler::Person::handleInnerTag(const std::shared_ptr<Tag> &tag)], Bad cast, this is not a InnerCategory");
 	}
 }
 
-void ConfigurationHandler::Person2::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &) 
+void ConfigurationHandler::Person2::handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &) 
 {
 	try
 	{
-		shared_ptr<Substitute> substitute = dynamic_pointer_cast<Substitute>(tag);
+		std::shared_ptr<Substitute> substitute = dynamic_pointer_cast<Substitute>(tag);
 
 		if(substitute.get() == 0)
 		{
@@ -305,7 +302,7 @@ void ConfigurationHandler::Person2::handleInnerTag(const shared_ptr<Tag> &tag) t
 	}
 	catch(bad_cast &)
 	{
-		throw InternalProgrammerErrorExceptionImpl("[void ConfigurationHandler::Person2::handleInnerTag(const shared_ptr<Tag> &tag)], Bad cast, this is not a InnerCategory");
+		throw InternalProgrammerErrorExceptionImpl("[void ConfigurationHandler::Person2::handleInnerTag(const std::shared_ptr<Tag> &tag)], Bad cast, this is not a InnerCategory");
 	}
 }
 
@@ -356,11 +353,11 @@ ConfigurationHandler::SentenceSplitters::SentenceSplitters(GraphBuilderInternal 
 
 }
 
-void ConfigurationHandler::SentenceSplitters::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
+void ConfigurationHandler::SentenceSplitters::handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
 {
 	try
 	{
-		shared_ptr<Splitter> splitter = dynamic_pointer_cast<Splitter>(tag);
+		std::shared_ptr<Splitter> splitter = dynamic_pointer_cast<Splitter>(tag);
 
 		if(splitter.get() == 0)
 		{
@@ -373,7 +370,7 @@ void ConfigurationHandler::SentenceSplitters::handleInnerTag(const shared_ptr<Ta
 	}
 	catch(bad_cast &)
 	{
-		throw InternalProgrammerErrorExceptionImpl("[void ConfigurationHandler::SentenceSplitters::handleInnerTag(const shared_ptr<Tag> &tag)], Bad cast, this is not a Splitter");
+		throw InternalProgrammerErrorExceptionImpl("[void ConfigurationHandler::SentenceSplitters::handleInnerTag(const std::shared_ptr<Tag> &tag)], Bad cast, this is not a Splitter");
 	}
 }
 

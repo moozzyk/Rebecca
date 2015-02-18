@@ -35,18 +35,12 @@
 //Rebecca includes
 #include <rebecca/framework/InnerCategory.h>
 
-//Boost includes
-#include <boost/enable_shared_from_this.hpp>
-#include <boost/shared_ptr.hpp>
-
 namespace rebecca
 {
 namespace framework
 {
 namespace impl
 {
-
-using namespace boost;
 
 /*
  * Forward declerations
@@ -76,7 +70,7 @@ class InnerTemplate;
  * attributes, and all inner Tags will
  * go through methods of this class.
  */
-class REBECCA_EXPORT Template : public InnerCategory, public enable_shared_from_this<Template>
+class REBECCA_EXPORT Template : public InnerCategory, public std::enable_shared_from_this<Template>
 {
 	public:
 
@@ -110,7 +104,7 @@ class REBECCA_EXPORT Template : public InnerCategory, public enable_shared_from_
 		 * only if the error is so grave that the entire AIML 
 		 * engine has to be shut down.
 		 */
-		virtual void add(const shared_ptr<InnerTemplate> &tag) 
+		virtual void add(const std::shared_ptr<InnerTemplate> &tag) 
 			throw(InternalProgrammerErrorException &);
 		
 		/**
@@ -182,7 +176,7 @@ class REBECCA_EXPORT Template : public InnerCategory, public enable_shared_from_
 		 * \exception InternalProgrammerErrorException is thrown 
 		 * if the tag is not an instance of an InnerTemplate
 		 */
-		virtual void handleInnerTag(const shared_ptr<Tag> &tag) 
+		virtual void handleInnerTag(const std::shared_ptr<Tag> &tag) 
 			throw(InternalProgrammerErrorException &);
 
 		/** 
@@ -204,7 +198,7 @@ class REBECCA_EXPORT Template : public InnerCategory, public enable_shared_from_
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<TemplateImpl> m_pimpl;
+		std::shared_ptr<TemplateImpl> m_pimpl;
 
 };
 

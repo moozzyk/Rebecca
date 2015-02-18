@@ -55,9 +55,9 @@ class CategoryImpl
 			: m_builder(builder) { }
 
 		GraphBuilderFramework &m_builder;
-		shared_ptr<PatternSideThat> m_that;
-		shared_ptr<Template> m_template;
-		shared_ptr<Pattern> m_pattern;
+		std::shared_ptr<PatternSideThat> m_that;
+		std::shared_ptr<Template> m_template;
+		std::shared_ptr<Pattern> m_pattern;
 	
 		//A const string to the default star of "*"
 		static const StringPimpl m_defaultStar;
@@ -75,24 +75,24 @@ Category::Category(GraphBuilderFramework &builder) throw(InternalProgrammerError
 }
 
 
-void Category::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
+void Category::handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
 {
-	LOG_BOT_METHOD("void Category::handleInnerTag(const shared_ptr<Tag> &tag)");
+	LOG_BOT_METHOD("void Category::handleInnerTag(const std::shared_ptr<Tag> &tag)");
 	
 	if(tag->instanceOf("PatternSideThat"))
 	{
-		shared_ptr<PatternSideThat> ic = static_pointer_cast<PatternSideThat>(tag);
+        std::shared_ptr<PatternSideThat> ic = std::static_pointer_cast<PatternSideThat>(tag);
 		m_pimpl->m_that = ic;
 	}
 	else if(tag->instanceOf("Template"))
 	{
-		shared_ptr<Template> ic = static_pointer_cast<Template>(tag);
+        std::shared_ptr<Template> ic = std::static_pointer_cast<Template>(tag);
 		m_pimpl->m_template = ic;
 
 	}
 	else if(tag->instanceOf("Pattern"))
 	{
-		shared_ptr<Pattern> ic = static_pointer_cast<Pattern>(tag);
+		std::shared_ptr<Pattern> ic = std::static_pointer_cast<Pattern>(tag);
 		m_pimpl->m_pattern = ic;
 	}
 	else 
@@ -124,7 +124,7 @@ const StringPimpl &Category::getThatString() throw(InternalProgrammerErrorExcept
 	}
 }
 
-const shared_ptr<Template> &Category::getTemplate() throw(InternalProgrammerErrorException &)
+const std::shared_ptr<Template> &Category::getTemplate() throw(InternalProgrammerErrorException &)
 {
 	return m_pimpl->m_template;
 }

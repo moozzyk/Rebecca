@@ -201,7 +201,7 @@ class REBECCA_EXPORT Li: public InnerTemplateListImpl
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<LiImpl> m_pimpl;
+		std::shared_ptr<LiImpl> m_pimpl;
 };
 
 } //end of namespace impl

@@ -62,9 +62,9 @@ Template::Template() throw(InternalProgrammerErrorException &)
 	addInstanceOf("Template");
 }
 
-void Template::add(const shared_ptr<InnerTemplate> &tag) throw(InternalProgrammerErrorException &)
+void Template::add(const std::shared_ptr<InnerTemplate> &tag) throw(InternalProgrammerErrorException &)
 { 	
-	LOG_BOT_METHOD("Template::add(const shared_ptr<InnerTemplate> &tag)");
+	LOG_BOT_METHOD("Template::add(const std::shared_ptr<InnerTemplate> &tag)");
 	
 	m_pimpl->m_sentence.push_back(tag);
 }
@@ -74,23 +74,23 @@ void Template::addCharacters(const StringPimpl &characters) throw(InternalProgra
 	LOG_BOT_METHOD("void Template::addCharacters(const StringPimpl &characters)");
 	logging("<Input> characters:" + String(characters.c_str()));
 
-	add(shared_ptr<PlainWord>(new PlainWord(characters)));
+	add(std::shared_ptr<PlainWord>(new PlainWord(characters)));
 }
 
-void Template::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
+void Template::handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
 {
-	LOG_BOT_METHOD("void Template::handleInnerTag(const shared_ptr<Tag> &tag)");
+	LOG_BOT_METHOD("void Template::handleInnerTag(const std::shared_ptr<Tag> &tag)");
 	
 	if(tag->instanceOf("InnerTemplate"))
 	{
-		shared_ptr<InnerTemplate> it = static_pointer_cast<InnerTemplate>(tag);
+		std::shared_ptr<InnerTemplate> it = static_pointer_cast<InnerTemplate>(tag);
 		add(it);
 	}
 	else
 	{
 		logging("Internal programmer error.  Bad cast, this is not a InnerTemplate");
 		throw InternalProgrammerErrorExceptionImpl(
-			"[void InnerTemplate::handleInnerTag(const shared_ptr<Tag> &tag)], Bad cast, this is not an InnerTemplate"
+			"[void InnerTemplate::handleInnerTag(const std::shared_ptr<Tag> &tag)], Bad cast, this is not an InnerTemplate"
 				                                  );
 	}
 }

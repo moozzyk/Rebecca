@@ -25,12 +25,9 @@
 #include <rebecca/GraphBuilder.h>
 #include <rebecca/impl/Exceptions.h>
 
-//Boost includes
-#include <boost/scoped_ptr.hpp>
-using namespace boost;
-
 //Std includes
 #include <exception>
+#include <memory>
 using namespace std;
 
 /* Disable Windows VC 7.x warning about 
@@ -49,10 +46,10 @@ AimlFacade::AimlFacade() throw(Exception &)
 {
 	try
 	{
-		scoped_ptr<Factory> factory(Factory::createFactory());
+		std::unique_ptr<Factory> factory(Factory::createFactory());
 		m_graphBuilder = factory->createGraphBuilder();	
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}

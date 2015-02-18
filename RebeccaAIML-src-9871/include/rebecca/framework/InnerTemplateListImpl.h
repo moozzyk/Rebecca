@@ -98,7 +98,7 @@ class REBECCA_EXPORT InnerTemplateListImpl : public InnerTemplate
 		 * only if the error is so grave that the entire AIML 
 		 * engine has to be shut down.
 		 */
-		virtual void add(const shared_ptr<InnerTemplate> &tag) 
+		virtual void add(const std::shared_ptr<InnerTemplate> &tag) 
 			throw(InternalProgrammerErrorException &);
 		
 		/**
@@ -155,7 +155,7 @@ class REBECCA_EXPORT InnerTemplateListImpl : public InnerTemplate
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<InnerTemplateListImplImpl> m_pimpl;
+		std::shared_ptr<InnerTemplateListImplImpl> m_pimpl;
 };
 
 } //end of namespace impl

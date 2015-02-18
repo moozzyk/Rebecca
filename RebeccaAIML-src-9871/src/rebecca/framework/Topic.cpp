@@ -88,9 +88,9 @@ Topic::Topic(GraphBuilderFramework &builder) throw(InternalProgrammerErrorExcept
 	addInstanceOf("Topic");
 }
 
-void Topic::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
+void Topic::handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
 {
-	LOG_BOT_METHOD("void Topic::handleInnerTag(const shared_ptr<Tag> &tag)");
+	LOG_BOT_METHOD("void Topic::handleInnerTag(const std::shared_ptr<Tag> &tag)");
 
 	if(tag->instanceOf("Category"))
 	{
@@ -98,7 +98,7 @@ void Topic::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerE
 		typedef tokenizer<char_separator<char> > tokenize;
 		typedef tokenizer<char_separator<char> >::const_iterator CI;
 
-		shared_ptr<Category> category = static_pointer_cast<Category>(tag);
+		std::shared_ptr<Category> category = static_pointer_cast<Category>(tag);
 		const StringPimpl &patternString = category->getPatternString();
 
 		//Static to improve startup time.
@@ -150,7 +150,7 @@ void Topic::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerE
 	{
 		logging("Internal programmer error.  Bad cast, this is not a Category or Topic");
 		throw InternalProgrammerErrorExceptionImpl(
-			"[void Topic::handleInnerTag(const shared_ptr<Tag> &tag)], Bad cast, this is not a Category or Topic"
+			"[void Topic::handleInnerTag(const std::shared_ptr<Tag> &tag)], Bad cast, this is not a Category or Topic"
 				                                  );
 	}
 }

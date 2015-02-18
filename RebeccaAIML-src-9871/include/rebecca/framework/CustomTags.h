@@ -32,9 +32,6 @@
 #    pragma warning( disable : 4290 )
 #endif
 
-//Boost includes
-#include <boost/shared_ptr.hpp>
-
 //Rebecca includes
 #include <rebecca/framework/Tag.h>
 #include <rebecca/framework/GraphBuilderFramework.h>
@@ -45,8 +42,6 @@ namespace framework
 {
 namespace impl
 {
-
-using namespace boost;
 
 /**
  * The class to inherit from
@@ -79,7 +74,7 @@ class REBECCA_EXPORT CustomTags
 	public:
 		
 		/**
-		 * Contract in which you will return a shared_ptr<Tag> 
+		 * Contract in which you will return a std::shared_ptr<Tag> 
 		 * of your custom Tag class when given the string of the
 		 * Tag name.
 		 *
@@ -112,7 +107,7 @@ class REBECCA_EXPORT CustomTags
 		 * only if the error is so grave that the entire AIML 
 		 * engine has to be shut down.
 		 */
-		virtual shared_ptr<Tag> createTagClass(const char * const className, GraphBuilderFramework &builder) 
+		virtual std::shared_ptr<Tag> createTagClass(const char * const className, GraphBuilderFramework &builder) 
 			throw(InternalProgrammerErrorException &) = 0;	
 
 		/**

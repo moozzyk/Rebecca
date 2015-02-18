@@ -123,7 +123,7 @@ class REBECCA_EXPORT System : public InnerTemplateListImpl
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<SystemImpl> m_pimpl;
+		std::shared_ptr<SystemImpl> m_pimpl;
 };
 
 } //end of namespace impl

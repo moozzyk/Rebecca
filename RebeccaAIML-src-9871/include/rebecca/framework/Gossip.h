@@ -125,7 +125,7 @@ class REBECCA_EXPORT Gossip : public InnerTemplateListImpl
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<GossipImpl> m_pimpl;
+		std::shared_ptr<GossipImpl> m_pimpl;
 };
 
 } //end of namespace impl

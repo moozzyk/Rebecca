@@ -143,7 +143,7 @@ class REBECCA_EXPORT Set : public InnerTemplateListImpl
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<SetImpl> m_pimpl;
+		std::shared_ptr<SetImpl> m_pimpl;
 };
 
 } //end of namespace impl

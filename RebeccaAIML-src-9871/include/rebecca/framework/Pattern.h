@@ -35,9 +35,6 @@
 //Rebecca includes
 #include <rebecca/framework/InnerCategory.h>
 
-//Boost includes
-#include <boost/enable_shared_from_this.hpp>
-
 namespace rebecca
 {
 namespace framework
@@ -61,8 +58,6 @@ namespace impl
  */
 class PatternImpl;
 
-using boost::enable_shared_from_this;
-
 /**
  * AIML class that represents the 
  * AIML XML tag "pattern".  
@@ -74,7 +69,7 @@ using boost::enable_shared_from_this;
  * attributes, and all inner Tags will
  * go through methods of this class.
  */
-class REBECCA_EXPORT Pattern : public InnerCategory, public enable_shared_from_this<Pattern>
+class REBECCA_EXPORT Pattern : public InnerCategory, public std::enable_shared_from_this<Pattern>
 {
 	public:
 
@@ -154,7 +149,7 @@ class REBECCA_EXPORT Pattern : public InnerCategory, public enable_shared_from_t
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<PatternImpl> m_pimpl;
+		std::shared_ptr<PatternImpl> m_pimpl;
 };
 
 } //end of namespace impl

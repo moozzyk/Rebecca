@@ -151,7 +151,7 @@ class REBECCA_EXPORT Gender : public InnerTemplateListImpl
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<GenderImpl> m_pimpl;
+		std::shared_ptr<GenderImpl> m_pimpl;
 
 };
 

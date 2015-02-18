@@ -67,9 +67,9 @@ Random::Random()
 	addInstanceOf("Random");
 }
 
-void Random::add(const shared_ptr<InnerTemplate> &tag) throw(InternalProgrammerErrorException &)
+void Random::add(const std::shared_ptr<InnerTemplate> &tag) throw(InternalProgrammerErrorException &)
 {
-	LOG_BOT_METHOD("void Random::add(const shared_ptr<InnerTemplate> &tag)");
+	LOG_BOT_METHOD("void Random::add(const std::shared_ptr<InnerTemplate> &tag)");
 	m_pimpl->m_sentence.push_back(tag);
 }
 

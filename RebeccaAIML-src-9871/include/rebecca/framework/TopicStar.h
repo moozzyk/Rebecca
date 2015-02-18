@@ -141,7 +141,7 @@ class REBECCA_EXPORT TopicStar : public InnerTemplate
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<TopicStarImpl> m_pimpl;
+		std::shared_ptr<TopicStarImpl> m_pimpl;
 };
 
 } //end of namespace impl

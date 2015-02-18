@@ -74,9 +74,9 @@ void AIML::setAttribute(const StringPimpl &name, const StringPimpl &value) throw
 	}
 }
 
-void AIML::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
+void AIML::handleInnerTag(const std::shared_ptr<Tag> &tag) throw(InternalProgrammerErrorException &)
 {
-	LOG_BOT_METHOD("void AIML::handleInnerTag(const shared_ptr<Tag> &tag)");
+	LOG_BOT_METHOD("void AIML::handleInnerTag(const std::shared_ptr<Tag> &tag)");
 
 	if(tag->instanceOf("Topic"))
 	{
@@ -84,7 +84,7 @@ void AIML::handleInnerTag(const shared_ptr<Tag> &tag) throw(InternalProgrammerEr
 	}
 	else
 	{
-		m_pimpl->m_defaultStarTopic.handleInnerTag(tag);	
+        m_pimpl->m_defaultStarTopic.handleInnerTag(tag);
 	}
 }
 

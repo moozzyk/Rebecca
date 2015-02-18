@@ -141,7 +141,7 @@ class REBECCA_EXPORT TemplateSideThat : public InnerTemplate
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<TemplateSideThatImpl> m_pimpl;
+		std::shared_ptr<TemplateSideThatImpl> m_pimpl;
 };
 
 } //end of namespace impl

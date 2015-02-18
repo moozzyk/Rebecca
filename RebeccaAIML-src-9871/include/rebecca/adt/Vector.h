@@ -24,12 +24,10 @@
 
 //Std includes
 #include <vector>
+#include <memory>
 
 //Rebecca includes
 #include <rebecca/adt/String.h>
-
-//Boost includes
-#include <boost/shared_ptr.hpp>
 
 namespace rebecca
 {
@@ -54,7 +52,6 @@ using framework::impl::InnerTemplate;
 
 namespace adt
 {
-using namespace boost;
 using rebecca::impl::InnerTemplate;
 
 template< typename T >
@@ -79,7 +76,7 @@ typedef Vector<int>::type VectorInt;
  */
 typedef Vector<String>::type VectorString;
 
-typedef Vector<shared_ptr<InnerTemplate> >::type VectorSharedPtrInnerTemplate;
+typedef Vector<std::shared_ptr<InnerTemplate> >::type VectorSharedPtrInnerTemplate;
 
 } //end of adt namespace
 

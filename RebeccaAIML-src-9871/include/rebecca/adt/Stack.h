@@ -28,9 +28,6 @@
 //Std includes
 #include <stack>
 
-//Boost includes
-#include <boost/shared_ptr.hpp>
-
 namespace rebecca
 {
 
@@ -51,7 +48,6 @@ using rebecca::framework::impl::Tag;
 namespace adt
 {
 using namespace rebecca::impl;
-using namespace boost;
 
 template< typename T >
 struct Stack
@@ -61,7 +57,7 @@ struct Stack
 
 typedef Stack<String>::type StackString;
 typedef Stack<Tag>::type StackTag;
-typedef Stack<shared_ptr<Tag> >::type SharedPtrStackTag;
+typedef Stack<std::shared_ptr<Tag> >::type SharedPtrStackTag;
 } //end of namespace adt
 
 //Expose to the rebecca namespace

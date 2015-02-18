@@ -108,7 +108,7 @@ class REBECCA_EXPORT InnerAIML : public Tag
 		* resilient to change. See the private implementation
 		* idiom on the internet for more information about this.
 		*/
-		shared_ptr<InnerAIMLImpl> m_pimpl;
+		std::shared_ptr<InnerAIMLImpl> m_pimpl;
 };
 
 

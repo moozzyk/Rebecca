@@ -101,7 +101,7 @@ StringPimpl Star::getString() const
 		m_pimpl->m_builder.getCallBacks().starTagSizeExceeded();
 		return StringPimpl();
 	}
-	catch(Exception &e)
+	catch(std::exception &e)
 	{
 		logging(String("Fatal exception occured:") + e.what());
 		return StringPimpl();
