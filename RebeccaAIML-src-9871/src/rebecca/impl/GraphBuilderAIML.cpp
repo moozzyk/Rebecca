@@ -199,7 +199,7 @@ void GraphBuilderAIML::addFile(const char * const file)
 		{
 			logging("file exists, adding to filesNotGraphed");
 			//Get the native file system's string to pass to xerces
-			string nativeFile = completePath.native_file_string();
+            string nativeFile = completePath.string();
 			m_filesGraphed.insert(pair<String, bool>(nativeFile, false));
 		}
 	}
@@ -237,14 +237,14 @@ void GraphBuilderAIML::addDirectory(const char * const directory, const char * c
 		directory_iterator end_itr; 
 
 		//Get the native file system's string to pass to xerces
-		string nativeDir = completePath.native_file_string();
+		string nativeDir = completePath.string();
 		for ( directory_iterator itr(completePath); itr != end_itr; ++itr )
 		{
-			if ( !is_directory( *itr ) && regex_match(string(itr->leaf()), what, rx1))
+            if (!is_directory(*itr) && regex_match(string(itr->path().filename().string()), what, rx1))
 			{
-				logging("Found file of:" + itr->leaf());
+                logging("Found file of:" + itr->path().filename().string());
 				String fileLocation(nativeDir);
-				fileLocation += "/" + itr->leaf();
+                fileLocation += "/" + itr->path().filename().string();
 				addFile(fileLocation.c_str());
 			}
 		}	
@@ -908,7 +908,7 @@ void GraphBuilderAIML::makeGraph(const InputSource &source, const String &file)
 			String SchemaLoc = "http://alicebot.org/2001/AIML-1.0.1 " + m_aimlSchema;
 
 			m_AIMLparser->setDoSchema(true);
-			m_AIMLparser->setDoValidation(true);    // optional.
+			m_AIMLparser->setValidationScheme(SAXParser::ValSchemes::Val_Always);
 			m_AIMLparser->setDoNamespaces(true);    // optional
 			m_AIMLparser->setExternalSchemaLocation(SchemaLoc.c_str());
 		}
@@ -1520,14 +1520,14 @@ void GraphBuilderAIML::parseConfigurationFile(const String &fileName)
 					            " http://aitools.org/programd/4.5/bot-configuration " + m_configurationSchema;
 
 			m_configurationParser->setDoSchema(true);
-			m_configurationParser->setDoValidation(true);    // optional.
+            m_configurationParser->setValidationScheme(SAXParser::ValSchemes::Val_Always);
 			m_configurationParser->setDoNamespaces(true);    // optional
 			m_configurationParser->setExternalSchemaLocation(SchemaLoc.c_str());
 		}
 		else
 		{
 			m_configurationParser->setDoSchema(false);
-			m_configurationParser->setDoValidation(false);    // optional.
+            m_configurationParser->setValidationScheme(SAXParser::ValSchemes::Val_Never);
 			m_configurationParser->setDoNamespaces(false);    // optional
 		}
 	
@@ -1871,24 +1871,12 @@ StringPimpl GraphBuilderAIML::callSystemCommand(const char * const command)
 	sa.nLength = sizeof(SECURITY_ATTRIBUTES);
 	sa.bInheritHandle = TRUE;
 	int fd, create;
-	OSVERSIONINFO osv;
-	osv.dwOSVersionInfoSize = sizeof(osv);
-	
-	GetVersionEx(&osv);
 
-	if (osv.dwPlatformId == VER_PLATFORM_WIN32_NT)
-	{
-		InitializeSecurityDescriptor(&sd, SECURITY_DESCRIPTOR_REVISION);
-		SetSecurityDescriptorDacl(&sd, TRUE, NULL, FALSE);
-		sa.lpSecurityDescriptor = &sd;
-	}
-	else
-	{
-		/* Pipe will use ACLs from default descriptor */
-		sa.lpSecurityDescriptor = NULL;
-	}
+    InitializeSecurityDescriptor(&sd, SECURITY_DESCRIPTOR_REVISION);
+	SetSecurityDescriptorDacl(&sd, TRUE, NULL, FALSE);
+	sa.lpSecurityDescriptor = &sd;
 
-	/* Create a new pipe with system's default buffer size */
+    /* Create a new pipe with system's default buffer size */
 	if (!CreatePipe(&read_pipe, &write_pipe, &sa, 0))
 	{
 		//error 
@@ -1908,7 +1896,7 @@ StringPimpl GraphBuilderAIML::callSystemCommand(const char * const command)
 	string cmd("cmd.exe /c \"");
 	cmd += commandString;
 	cmd += "\"";
-	char *commandLine = strdup(cmd.c_str());
+	char *commandLine = _strdup(cmd.c_str());
 	create = CreateProcess(
 		NULL,				// The full path of app to launch
 		commandLine, // Command line parameters
@@ -1942,7 +1930,7 @@ StringPimpl GraphBuilderAIML::callSystemCommand(const char * const command)
 	FILE *file = 0;
 
 	/* Open the pipe stream using its file descriptor */
-	file = fdopen(fd, "r");
+	file = _fdopen(fd, "r");
 
 	if(!file)
 	{

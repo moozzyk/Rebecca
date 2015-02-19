@@ -86,22 +86,10 @@ StringPimpl System::getString() const
 	sa.nLength = sizeof(SECURITY_ATTRIBUTES);
 	sa.bInheritHandle = TRUE;
 	int fd, create;
-	OSVERSIONINFO osv;
-	osv.dwOSVersionInfoSize = sizeof(osv);
 	
-	GetVersionEx(&osv);
-
-	if (osv.dwPlatformId == VER_PLATFORM_WIN32_NT)
-	{
-		InitializeSecurityDescriptor(&sd, SECURITY_DESCRIPTOR_REVISION);
-		SetSecurityDescriptorDacl(&sd, TRUE, NULL, FALSE);
-		sa.lpSecurityDescriptor = &sd;
-	}
-	else
-	{
-		/* Pipe will use ACLs from default descriptor */
-		sa.lpSecurityDescriptor = NULL;
-	}
+    InitializeSecurityDescriptor(&sd, SECURITY_DESCRIPTOR_REVISION);
+	SetSecurityDescriptorDacl(&sd, TRUE, NULL, FALSE);
+	sa.lpSecurityDescriptor = &sd;
 
 	/* Create a new pipe with system's default buffer size */
 	if (!CreatePipe(&read_pipe, &write_pipe, &sa, 0))
@@ -110,7 +98,6 @@ StringPimpl System::getString() const
 		return StringPimpl();
 	}
 	
-
 	GetStartupInfo(&si);
 
 	/* Sets the standard output handle for the process to the
@@ -123,7 +110,7 @@ StringPimpl System::getString() const
 	string cmd("cmd.exe /c \"");
 	cmd += InnerTemplateListImpl::getString().c_str();
 	cmd += "\"";
-	char *command = strdup(cmd.c_str());
+	char *command = _strdup(cmd.c_str());
 	create = CreateProcess(
 		NULL,				// The full path of app to launch
 		command, // Command line parameters
@@ -157,7 +144,7 @@ StringPimpl System::getString() const
 	FILE *file = 0;
 
 	/* Open the pipe stream using its file descriptor */
-	file = fdopen(fd, "r");
+	file = _fdopen(fd, "r");
 
 	if(!file)
 	{
