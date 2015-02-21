@@ -14,4 +14,3 @@ Release/
 ipch/
 *.vcxproj.user
 *.exe
-boost/
