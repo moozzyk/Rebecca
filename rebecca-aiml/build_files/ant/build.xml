@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<project name="RebeccaAIML" default="jar" basedir="../../src/ice/clients/java">
+
+    <!-- properties -->
+    <property name="jar-location" value="../../../../bin/java"/>
+    <property name="javadoc-location" value="../../../../doc/javadocs"/>
+    <property name="jar-name" value="rebecca-network.jar" />
+    <property name="jar-name-location" value="${jar-location}/${jar-name}"/>
+
+    <target name="init" description="Creates needed directories">
+        <mkdir dir="classes"/>
+    </target>
+
+    <target name="compile" depends="init" description="compiles the code">
+        <javac srcdir="." destdir="classes">
+            <classpath>
+                <fileset dir="${jar-location}">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile"
+            description="create a Jar file for the application">
+        <jar destfile="${jar-name-location}">
+            <fileset dir="classes" includes="**/*.class"/>
+        </jar>
+    </target>
+
+
+    <target name="clean" description="remove all classes and built jars">
+        <delete dir="classes"/>
+        <delete file="${jar-name-location}"/>
+    </target>
+
+    <target name="javadoc" description="Create javadocs">
+        <javadoc destdir="${javadoc-location}">
+            <fileset dir="." includes="**/*.java" />
+        </javadoc>
+    </target>
+
+    
+</project>
+

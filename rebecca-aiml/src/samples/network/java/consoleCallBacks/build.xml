@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<project name="consoleCallBacks" default="jar" basedir=".">
+
+    <!-- properties -->
+    <property name="jar-location" value="../../../../../bin/java"/>
+    <property name="jar-name" value="consoleCallBacks.jar" />
+    <property name="jar-name-location" value="${jar-location}/${jar-name}"/>
+
+    <target name="init" description="Creates needed directories">
+        <mkdir dir="classes"/>
+    </target>
+
+    <target name="compile" depends="init" description="compiles the code">
+        <javac srcdir="." destdir="classes">
+            <classpath>
+                <fileset dir="${jar-location}">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile"
+            description="create a Jar file for the application">
+        <jar destfile="${jar-name-location}">
+            <fileset dir="classes" includes="**/*.class"/>
+            <manifest>
+                <attribute name="Main-Class" value="ConsoleCallBacks"/>
+                <attribute name="Class-Path" value="Ice.jar rebecca-network.jar" />
+            </manifest>
+        </jar>
+    </target>
+
+
+    <target name="clean" description="remove all classes and built jars">
+        <delete dir="classes"/>
+        <delete file="${jar-name-location}"/>
+    </target>
+
+</project>
+

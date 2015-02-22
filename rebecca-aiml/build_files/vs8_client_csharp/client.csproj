@@ -1,0 +1,80 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1DD83789-7038-49BD-B54B-8FEBEFE11EC5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>rebecca</RootNamespace>
+    <AssemblyName>rebecca-network-cs</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\csharp\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\csharp\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="icecs, Version=3.2.0.0, Culture=neutral, PublicKeyToken=1f998c50fec78381, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Ice-3.2.0\bin\icecs.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\src\ice\clients\csharp\rebecca\CallBacks.cs">
+      <Link>CallBacks.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\ice\clients\csharp\rebecca\GraphBuilder.cs">
+      <Link>GraphBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\ice\clients\csharp\rebecca\IllegalArgumentException.cs">
+      <Link>IllegalArgumentException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\ice\clients\csharp\rebecca\impl\network.cs">
+      <Link>network.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\ice\clients\csharp\rebecca\impl\NetworkCallBacks.cs">
+      <Link>NetworkCallBacks.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\ice\clients\csharp\rebecca\impl\NetworkGraphBuilderAIML.cs">
+      <Link>NetworkGraphBuilderAIML.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\ice\clients\csharp\rebecca\NetworkAimlFacade.cs">
+      <Link>NetworkAimlFacade.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\ice\clients\csharp\rebecca\NetworkException.cs">
+      <Link>NetworkException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\ice\clients\csharp\rebecca\NetworkGraphBuilder.cs">
+      <Link>NetworkGraphBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\src\ice\clients\csharp\rebecca\XMLErrorException.cs">
+      <Link>XMLErrorException.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

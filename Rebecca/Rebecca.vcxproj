@@ -11,128 +11,153 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\Deque.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\List.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\Map.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\Queue.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\Stack.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\String.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\adt\Vector.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\AimlFacade.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\all.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\CallBacks.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\Exceptions.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\exports.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\AIML.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Bot.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Category.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Condition.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\CustomTags.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Date.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Formal.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Gender.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Get.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Gossip.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Id.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\InnerAIML.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\InnerCategory.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\InnerTemplate.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\InnerTemplateListImpl.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\InnerTopic.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Input.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Learn.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Li.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\LowerCase.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\NonImplemented.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Pattern.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\PatternSideThat.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Person.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Person2.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\PlainWord.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Random.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Sentence.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Set.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Size.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Srai.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Star.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\System.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Tag.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Template.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\TemplateSideThat.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\ThatStar.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Think.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Topic.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\TopicStar.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\UpperCase.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\framework\Version.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\GraphBuilder.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\impl\ConfigurationHandler.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\impl\Exceptions.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\impl\GraphBuilderAIML.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\impl\GraphHandler.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\impl\NodeMapper.h" />
-    <ClInclude Include="..\RebeccaAIML-src-9871\include\rebecca\StringPimpl.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\AimlFacade.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\all.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\CallBacks.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\Exceptions.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\exports.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\GraphBuilder.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\NetworkAimlFacade.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\NetworkGraphBuilder.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\network_all.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\StringPimpl.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\AIML.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Bot.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Category.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Condition.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\CustomTags.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Date.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Formal.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\FrameworkFactory.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Gender.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Get.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Gossip.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\GraphBuilderFramework.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Id.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\IdentificationManager.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\InnerAIML.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\InnerCategory.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\InnerTemplate.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\InnerTemplateListImpl.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\InnerTopic.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Input.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Learn.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Li.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\LowerCase.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\NonImplemented.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Pattern.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\PatternSideThat.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Person.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Person2.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\PlainWord.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Random.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\RemoveAIML.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\RemoveTopic.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Sentence.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Set.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Size.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Srai.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Star.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\System.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Tag.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Template.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\TemplateSideThat.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\ThatStar.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Think.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Topic.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\TopicStar.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\UpperCase.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\framework\Version.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\ConfigurationHandler.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\ConfigurationHandlerError.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\CustomTagWithDelete.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\DatabaseManager.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\Exceptions.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\Factory.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\getStringFromSentence.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\GraphBuilderAIML.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\GraphBuilderInternal.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\GraphHandler.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\GraphHandlerError.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\NodeMapper.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\PredicateManager.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\PreviousResponsesManager.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\RemoveGraphHandler.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\ScopedTransaction.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\StarsManager.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\TemplateParser.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\XercesSAXXMLManager.h" />
+    <ClInclude Include="..\rebecca-aiml\include\rebecca\impl\utils\Transcode.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\AimlFacade.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\GraphBuilder.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\StringPimpl.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\AIML.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Bot.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Category.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Condition.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Date.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Formal.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Gender.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Get.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Gossip.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\GraphBuilderFramework.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Id.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerAIML.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerCategory.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerTemplaListImpl.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerTemplate.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\InnerTopic.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Input.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Learn.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Li.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\LowerCase.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\NonImplemented.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Pattern.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\PatternSideThat.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Person.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Person2.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\PlainWord.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Random.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Sentence.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Set.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Size.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Srai.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Star.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\System.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Tag.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Template.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\TemplateSideThat.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\ThatStar.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Think.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Topic.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\TopicStar.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\UpperCase.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\framework\Version.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\ConfigurationHandler.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\ConfigurationHandlerError.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\CustomTagWithDelete.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\Factory.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\getStringFromSentence.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphBuilderAIML.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphBuilderInternal.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphHandler.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\GraphHandlerError.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\NodeMapper.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\PrototypeFactory.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\Logging.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\StackTrace.cpp" />
-    <ClCompile Include="..\RebeccaAIML-src-9871\src\rebecca\impl\utils\Transcode.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\AimlFacade.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\GraphBuilder.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\StringPimpl.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\AIML.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Bot.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Category.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Condition.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Date.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Formal.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\FrameworkFactory.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Gender.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Get.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Gossip.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\GraphBuilderFramework.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Id.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\IdentificationManager.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\InnerAIML.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\InnerCategory.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\InnerTemplaListImpl.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\InnerTemplate.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\InnerTopic.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Input.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Learn.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Li.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\LowerCase.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\NonImplemented.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Pattern.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\PatternSideThat.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Person.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Person2.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\PlainWord.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Random.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\RemoveAIML.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\RemoveTopic.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Sentence.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Set.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Size.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Srai.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Star.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\System.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Tag.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Template.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\TemplateSideThat.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\ThatStar.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Think.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Topic.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\TopicStar.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\UpperCase.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\framework\Version.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\ConfigurationHandler.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\ConfigurationHandlerError.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\CustomTagWithDelete.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\DatabaseManager.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\Factory.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\getStringFromSentence.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\GraphBuilderAIML.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\GraphBuilderInternal.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\GraphHandler.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\GraphHandlerError.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\NodeMapper.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\PredicateManager.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\PreviousResponsesManager.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\RemoveGraphHandler.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\ScopedTransaction.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\StarsManager.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\TemplateParser.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\XercesSAXXMLManager.cpp" />
+    <ClCompile Include="..\rebecca-aiml\src\rebecca\impl\utils\Transcode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -167,7 +192,7 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError Condition="'$(TreatWarningsAsErrors)' != ''">true</TreatWarningAsError>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\RebeccaAIML-src-9871\include;..\xerces-c-3.1.1\src%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\rebecca-aiml\include;..\xerces-c-3.1.1\src%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -232,39 +257,6 @@
   <PropertyGroup>
     <NuGetPackageImportStamp>9a10428a</NuGetPackageImportStamp>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\RebeccaAIML-src-9871\include\rebecca\include;..\xerces-c-3.1.1\src;..\boost\%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SDLCheck>true</SDLCheck>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-    </Link>
-  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\boost.1.57.0.0\build\native\boost.targets" Condition="Exists('..\packages\boost.1.57.0.0\build\native\boost.targets')" />
