@@ -23,7 +23,7 @@
 #include <rebecca/impl/DatabaseManager.h>
 
 //DB includes
-//#include <db_cxx.h>
+#include <db_cxx.h>
 
 //rebecca includes
 #include <rebecca/StringPimpl.h>
@@ -81,7 +81,9 @@ class DatabaseManagerImpl
 		{
 			//Initialize the db environment variable
 	#       ifdef _WIN32
+                #pragma warning(disable:4996)
 				char *initPath = getenv("ALLUSERSPROFILE");
+                #pragma warning(default:4996)
 	#       else
 				char *initPath = getenv("HOME");
 	#       endif

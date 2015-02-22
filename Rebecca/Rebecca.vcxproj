@@ -192,7 +192,7 @@
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError Condition="'$(TreatWarningsAsErrors)' != ''">true</TreatWarningAsError>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\rebecca-aiml\include;..\xerces-c-3.1.1\src%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\rebecca-aiml\include;..\xerces-c-3.1.1\src;..\db-6.1.19\build_windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
