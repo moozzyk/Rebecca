@@ -23,7 +23,7 @@
 #include <rebecca/impl/DatabaseManager.h>
 
 //DB includes
-#include <db_cxx.h>
+//#include <db_cxx.h>
 
 //rebecca includes
 #include <rebecca/StringPimpl.h>

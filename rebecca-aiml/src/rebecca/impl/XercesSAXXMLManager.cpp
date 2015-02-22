@@ -179,7 +179,7 @@ StringPimpl XercesSAXXMLManager::parseTemplateString(const StringPimpl templateS
 	TemplateParser docHandler;
 	m_pimpl->m_saxParser->setDocumentHandler(&docHandler);
 	m_pimpl->m_saxParser->setDoSchema(false);
-	m_pimpl->m_saxParser->setDoValidation(false);
+    m_pimpl->m_saxParser->setValidationScheme(SAXParser::ValSchemes::Val_Never);
 	m_pimpl->m_saxParser->setDoNamespaces(false);
 	StringPimpl input = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>";
 	input += templateString;
@@ -206,7 +206,10 @@ void XercesSAXXMLManager::setDoValidation(bool trueOrFalse)
 	{
 		m_pimpl->m_saxParser.reset(new SAXParser);
 	}
-	m_pimpl->m_saxParser->setDoValidation(trueOrFalse);
+    m_pimpl->m_saxParser->setValidationScheme(
+        trueOrFalse 
+            ? SAXParser::ValSchemes::Val_Always 
+            : SAXParser::ValSchemes::Val_Never);
 }
 
 void XercesSAXXMLManager::setDoNamespaces(bool trueOrFalse)

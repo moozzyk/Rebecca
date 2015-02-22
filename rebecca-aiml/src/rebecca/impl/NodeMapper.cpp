@@ -31,8 +31,6 @@
 using namespace rebecca::framework;
 
 //Boost includes
-#include <boost/shared_ptr.hpp>
-#include <boost/scoped_ptr.hpp>
 #include <boost/tokenizer.hpp>
 #include <boost/algorithm/string.hpp>
 using namespace boost;
@@ -152,7 +150,7 @@ void NodeMapper::add(const Template *templateToAdd,
 		//This is actually a reference to a node inside of the map.
 		//It is faster to use a reference inside of the map and change the reference
 		//inside of the map directly then to be making tons of copies.
-		shared_ptr<NodeMapper> &node = m_links.add(wordStack.front());
+        std::shared_ptr<NodeMapper> &node = m_links.add(wordStack.front());
 		wordStack.pop();
 		
 		node->add(templateToAdd, wordStack);
@@ -264,7 +262,7 @@ StringPimpl NodeMapper::getTemplateString(const StringPimpl &path,
 	if(predicateGet)
 	{
 		//This section is for the conditional statements
-		shared_ptr<NodeMapper> node = getNode(wordStack);
+        std::shared_ptr<NodeMapper> node = getNode(wordStack);
 		if(node.get())
 		{
 			return node->getTemplateStringPredicate();
@@ -591,7 +589,7 @@ bool NodeMapper::getNodeUsingDB(const StringPimpl &key,
 }
 
 
-shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
+std::shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 {
 	//This is used to collect our 
 	//star we get from parsing 
@@ -618,7 +616,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 			//node doesn't have any info so 
 			//just return an empty shared_ptr() 
 			//to indicate no template
-			return shared_ptr<NodeMapper>();
+            return std::shared_ptr<NodeMapper>();
 		}
 	}
 	else 
@@ -635,7 +633,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 			//wordstack where the stars 
 			//should be the default star
 			m_starsManager->setUseDefaultStar(); 
-			shared_ptr<NodeMapper> node = m_links.getWordNode("<THAT>", true);
+            std::shared_ptr<NodeMapper> node = m_links.getWordNode("<THAT>", true);
 			if(node.get())
 			{
 				wordStack.pop();
@@ -651,7 +649,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 				m_starsManager->setUseThatStar();
 				//Return empty node since
 				//we can't find the "<THAT>" link
-				return shared_ptr<NodeMapper>();
+                return std::shared_ptr<NodeMapper>();
 			}
 		}
 		else if(word == "<TOPIC>")
@@ -662,7 +660,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 			//wordstack where the stars 
 			//should be the thatStar
 			m_starsManager->setUseThatStar();
-			shared_ptr<NodeMapper> node = m_links.getWordNode("<TOPIC>", true);
+            std::shared_ptr<NodeMapper> node = m_links.getWordNode("<TOPIC>", true);
 			if(node.get())
 			{
 				wordStack.pop();
@@ -681,7 +679,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 				m_starsManager->setUseTopicStar();
 				//Return empty node since
 				//we can't find the "<TOPIC>" link
-				return shared_ptr<NodeMapper>();
+                return std::shared_ptr<NodeMapper>();
 			}
 		}
 		//If it's the <USERID> that's left then what we have
@@ -692,7 +690,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 		else if(word == "<USERID>")
 		{
 			//Get the link connecting to the "<USERID>"
-			shared_ptr<NodeMapper> node = m_links.getWordNode("<USERID>", true);
+            std::shared_ptr<NodeMapper> node = m_links.getWordNode("<USERID>", true);
 			if(node.get())
 			{
 				//pop off "<USERID>" token
@@ -731,21 +729,21 @@ shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 					{
 						//Return empty node since
 						//we can't match the bot id
-						return shared_ptr<NodeMapper>();
+                        return std::shared_ptr<NodeMapper>();
 					}
 				}
 				else
 				{
 					//Return empty node since
 					//we can't match the user id
-					return shared_ptr<NodeMapper>();
+                    return std::shared_ptr<NodeMapper>();
 				}
 			}
 			else
 			{
 				//Return empty node since we 
 				//can't find the <USERID>
-				return shared_ptr<NodeMapper>();
+                return std::shared_ptr<NodeMapper>();
 			}
 		}
 		
@@ -759,7 +757,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 		wordStack.pop();
 		
 		//Check to see if we have a link to the "_"
-		shared_ptr<NodeMapper> node = m_links.getUnderScoreNode();
+        std::shared_ptr<NodeMapper> node = m_links.getUnderScoreNode();
 
 		if(node.get())
 		{	
@@ -780,7 +778,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 			while(!tempStack.empty())
 			{	
 				//Check if this current stack has a match.
-				shared_ptr<NodeMapper> returnNode = node->getNode(tempStack);
+                std::shared_ptr<NodeMapper> returnNode = node->getNode(tempStack);
 
 				if(returnNode.get())
 				{	
@@ -867,7 +865,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 			while(!tempStack.empty())
 			{   	
 				//Check if this current stack has a match.
-				shared_ptr<NodeMapper> returnNode = node->getNode(tempStack);
+                std::shared_ptr<NodeMapper> returnNode = node->getNode(tempStack);
 				
 				if(returnNode.get())
 				{
@@ -897,7 +895,7 @@ shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 				//didn't match to anything.  Return an
 				//empty pointer since we don't have any 
 				//options left at this point.
-				return shared_ptr<NodeMapper>();
+                return std::shared_ptr<NodeMapper>();
 			}
 		}
 		else
@@ -907,15 +905,15 @@ shared_ptr<NodeMapper> NodeMapper::getNode(queue<StringPimpl> wordStack)
 			//nor did we have a link to a "*".  So, 
 			//we're returning immediately with an 
 			//empty pointer.
-			return shared_ptr<NodeMapper>();
+            return std::shared_ptr<NodeMapper>();
 		}
 	}
 }
 
-shared_ptr<NodeMapper> NodeMapper::Links::getWordNode(const StringPimpl &word, bool caseSensitive)
+std::shared_ptr<NodeMapper> NodeMapper::Links::getWordNode(const StringPimpl &word, bool caseSensitive)
 {
 	
-	map<StringPimpl, shared_ptr<NodeMapper> >::iterator i;
+    map<StringPimpl, std::shared_ptr<NodeMapper> >::iterator i;
 	
 	if(!caseSensitive)
 	{
@@ -940,13 +938,13 @@ shared_ptr<NodeMapper> NodeMapper::Links::getWordNode(const StringPimpl &word, b
 	else
 	{
 		//Did not find the node associated with this word
-		return shared_ptr<NodeMapper>();
+        return std::shared_ptr<NodeMapper>();
 	}
 }
 
-shared_ptr<NodeMapper> &NodeMapper::Links::add(StringPimpl &word)
+std::shared_ptr<NodeMapper> &NodeMapper::Links::add(StringPimpl &word)
 {
-	map<StringPimpl, shared_ptr<NodeMapper> >::iterator i;
+    map<StringPimpl, std::shared_ptr<NodeMapper> >::iterator i;
 
 	i = m_nodeLink.find(word);
 	
@@ -959,16 +957,16 @@ shared_ptr<NodeMapper> &NodeMapper::Links::add(StringPimpl &word)
 	{
 		//Word is not already a node.  Creating a node for it.
 		//returning the reference to that node.
-		return m_nodeLink[word] = shared_ptr<NodeMapper>(new NodeMapper);
+        return m_nodeLink[word] = std::shared_ptr<NodeMapper>(new NodeMapper);
 	}
 }
 
-shared_ptr<NodeMapper> NodeMapper::Links::getUnderScoreNode()
+std::shared_ptr<NodeMapper> NodeMapper::Links::getUnderScoreNode()
 {
 	return getWordNode("_", true);
 }
 
-shared_ptr<NodeMapper> NodeMapper::Links::getStarNode()
+std::shared_ptr<NodeMapper> NodeMapper::Links::getStarNode()
 {
 	return getWordNode("*", true);
 }

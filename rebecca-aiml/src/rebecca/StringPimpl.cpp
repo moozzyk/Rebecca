@@ -71,7 +71,7 @@ StringPimpl::StringPimpl()
 	{
 		m_pimpl = new StringPrivate;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -85,7 +85,7 @@ StringPimpl::StringPimpl(const char * const stringPimpl)
 	{
 		init(stringPimpl);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -113,7 +113,7 @@ StringPimpl::StringPimpl(const StringPimpl& stringPimpl)
 	{
 		init(stringPimpl.c_str());
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -125,7 +125,7 @@ bool StringPimpl::empty() const throw(Exception &)
 	{
 		return m_pimpl->m_proxy.empty();
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -280,7 +280,7 @@ const char *StringPimpl::c_str() const throw(Exception &)
 	{
 		return m_pimpl->m_proxy.c_str();
 	}
-	catch(Exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -327,7 +327,7 @@ bool StringPimpl::existsAsAFile() const
 		path completePath = complete(nativeFileFormat);
 		return exists(completePath) && (!is_directory(completePath));
 	}
-	catch(exception &)
+	catch(std::exception &)
 	{
 		return false;
 	}
@@ -345,7 +345,7 @@ bool StringPimpl::existsAsADirectory() const
 		path completePath = complete(nativeFileFormat);
 		return exists(completePath) && (is_directory(completePath));
 	}
-	catch(exception &)
+	catch(std::exception &)
 	{
 		return false;
 	}
@@ -447,9 +447,9 @@ void StringPimpl::transformIntoAbsoluteFilePath() const
 		path completePath = complete(nativeFileFormat);
 
 		//Get the native file system's string to pass to xerces
-		m_pimpl->m_proxy = completePath.native_file_string();
+        m_pimpl->m_proxy = completePath.string();
 	}
-	catch(exception &)
+	catch(std::exception &)
 	{
 		//Do nothing. 
 		//No transformation if an exception occurs

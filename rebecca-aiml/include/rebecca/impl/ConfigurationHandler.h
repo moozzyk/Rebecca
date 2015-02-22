@@ -29,9 +29,6 @@
 //Rebecca includes
 #include <rebecca/framework/Tag.h>
 
-//boost includes
-#include <boost/shared_ptr.hpp>
-
 //std includes
 #include <stack>
 #include <vector>
@@ -51,7 +48,6 @@ namespace impl
 
 XERCES_CPP_NAMESPACE_USE
 using namespace rebecca::framework;
-using namespace boost;
 using namespace std;
 
 class ConfigurationHandler : public HandlerBase

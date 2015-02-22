@@ -30,9 +30,6 @@
 #include <rebecca/impl/NodeMapper.h>
 #include <rebecca/framework/Tag.h>
 
-//Boost includes
-#include <boost/shared_ptr.hpp>
-
 //std includes
 #include <stack>
 
@@ -42,7 +39,6 @@ namespace impl
 {
 
 XERCES_CPP_NAMESPACE_USE
-using namespace boost;
 using namespace rebecca;
 using namespace std;
 
@@ -72,7 +68,7 @@ class TemplateParser : public HandlerBase
 		 * Current node being constructed.
 		 *
 		 */		
-		shared_ptr<NodeMapper> m_currentNode;
+        std::shared_ptr<NodeMapper> m_currentNode;
 		Tag *m_currentStartElement;
 };
 

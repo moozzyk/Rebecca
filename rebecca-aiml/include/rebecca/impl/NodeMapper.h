@@ -25,8 +25,6 @@
 
 //Boost includes
 #include <boost/algorithm/string.hpp>
-#include <boost/shared_ptr.hpp>
-#include <boost/enable_shared_from_this.hpp>
 
 //Rebecca includes
 #include <rebecca/framework/Template.h>
@@ -62,7 +60,7 @@ using namespace std;
 using namespace boost;
 using namespace rebecca::framework::impl;
 	
-class NodeMapper : public enable_shared_from_this<NodeMapper>
+class NodeMapper : public std::enable_shared_from_this<NodeMapper>
 {	
 	/** 
 	 * Keeps track of all the operations you can 
@@ -82,10 +80,10 @@ class NodeMapper : public enable_shared_from_this<NodeMapper>
 			 * not add anything since that node is 
 			 * already there.
 			 */
-			inline shared_ptr<NodeMapper> &add(StringPimpl &word);
-			inline shared_ptr<NodeMapper> getUnderScoreNode();
-			inline shared_ptr<NodeMapper> getWordNode(const StringPimpl &word, bool caseSensitive = false);
-			inline shared_ptr<NodeMapper> getStarNode();
+			inline std::shared_ptr<NodeMapper> &add(StringPimpl &word);
+            inline std::shared_ptr<NodeMapper> getUnderScoreNode();
+            inline std::shared_ptr<NodeMapper> getWordNode(const StringPimpl &word, bool caseSensitive = false);
+            inline std::shared_ptr<NodeMapper> getStarNode();
 	    private:
 
 			/** 
@@ -96,7 +94,7 @@ class NodeMapper : public enable_shared_from_this<NodeMapper>
 			 * word, a asterisk "*", or an underscore "_"
 			 * and then return the node link.
 			 */
-			map<StringPimpl, shared_ptr<NodeMapper> > m_nodeLink;
+            map<StringPimpl, std::shared_ptr<NodeMapper> > m_nodeLink;
 	};
 
 	public:
@@ -115,7 +113,7 @@ class NodeMapper : public enable_shared_from_this<NodeMapper>
 					         const Template *templateToAdd,
 					         queue<StringPimpl> &wordStack);
 
-		shared_ptr<NodeMapper> getNode(queue<StringPimpl> wordStack);
+        std::shared_ptr<NodeMapper> getNode(queue<StringPimpl> wordStack);
 
 		bool getNodeUsingDB(const StringPimpl &key,
 								        StringPimpl &returnString,

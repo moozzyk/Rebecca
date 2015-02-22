@@ -47,7 +47,6 @@
 #include <boost/filesystem/fstream.hpp>    
 #include <boost/filesystem/exception.hpp>
 #include <boost/algorithm/string.hpp>
-#include <boost/scoped_ptr.hpp>
 #include <boost/tokenizer.hpp>
 #include <boost/algorithm/string_regex.hpp>
 
@@ -163,7 +162,7 @@ GraphBuilderAIML *GraphBuilderAIML::reset()
 		string msg("XMLException during initalization: " + message.getString());
 		throw InitializationExceptionImpl(msg.c_str());
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -201,7 +200,7 @@ void GraphBuilderAIML::init()
 		m_AIMLErrorHandler.reset(new GraphHandlerError);
 		m_configurationErrorHandler.reset(new ConfigurationHandlerError);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -314,7 +313,7 @@ void GraphBuilderAIML::addFile(const StringPimpl &file)
 			m_databaseManager->addRecordWithCount(userId + "_@" + botId + "_@filesNotGraphed_@", file);
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -353,7 +352,7 @@ void GraphBuilderAIML::removeFile(const StringPimpl &file)
 			m_databaseManager->addRecordWithCount(userId + "_@" + botId + "_@filesGraphed_@", file);
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -427,7 +426,7 @@ void GraphBuilderAIML::removeGraph()
 		m_databaseManager->deleteRecordCount(userId + "_@" + botId + "_@stringsGraphed_@");
 
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -489,10 +488,10 @@ void GraphBuilderAIML::removeDirectory(const StringPimpl &directory,
 
 		for ( directory_iterator itr(completePath); itr != end_itr; ++itr )
 		{
-			if ( !is_directory( *itr ) && regex_match(string(itr->leaf()), what, rx1))
+            if (!is_directory(*itr) && regex_match(string(itr->path().filename().string()), what, rx1))
 			{
 				string fileLocation(nativeDir);
-				fileLocation += "/" + itr->leaf();
+                fileLocation += "/" + itr->path().filename().string();
 				removeFile(fileLocation.c_str());
 			}
 		}	
@@ -517,7 +516,7 @@ void GraphBuilderAIML::removeDirectory(const StringPimpl &directory,
 		//FileNotFoundException, you should not be here
 		throw IllegalArgumentExceptionImpl("File not found exception occured.  You must have passed a bad directory in.");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -570,10 +569,10 @@ void GraphBuilderAIML::addDirectory(const StringPimpl &directory,
 
 		for ( directory_iterator itr(completePath); itr != end_itr; ++itr )
 		{
-			if ( !is_directory( *itr ) && regex_match(string(itr->leaf()), what, rx1))
+            if (!is_directory(*itr) && regex_match(string(itr->path().filename().string()), what, rx1))
 			{
 				string fileLocation(nativeDir);
-				fileLocation += "/" + itr->leaf();
+                fileLocation += "/" + itr->path().filename().string();
 				addFile(fileLocation.c_str());
 			}
 		}	
@@ -598,7 +597,7 @@ void GraphBuilderAIML::addDirectory(const StringPimpl &directory,
 		//FileNotFoundException, you should not be here
 		throw IllegalArgumentExceptionImpl("File not found exception occured.  You must have passed a bad directory in.");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -644,10 +643,10 @@ void GraphBuilderAIML::addDirectoryUnlessAlreadyAdded(const StringPimpl &directo
 
 		for ( directory_iterator itr(completePath); itr != end_itr; ++itr )
 		{
-			if ( !is_directory( *itr ) && regex_match(string(itr->leaf()), what, rx1))
+            if (!is_directory(*itr) && regex_match(string(itr->path().filename().string()), what, rx1))
 			{
 				string fileLocation(nativeDir);
-				fileLocation += "/" + itr->leaf();
+                fileLocation += "/" + itr->path().filename().string();
 				StringPimpl fileLocationPimpl(fileLocation.c_str());
 				bool fileExists = false;
 				for(unsigned int i = 0; i < files.size(); ++i)
@@ -686,7 +685,7 @@ void GraphBuilderAIML::addDirectoryUnlessAlreadyAdded(const StringPimpl &directo
 		//FileNotFoundException, you should not be here
 		throw IllegalArgumentExceptionImpl("File not found exception occured.  You must have passed a bad directory in.");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -748,7 +747,7 @@ void GraphBuilderAIML::addString(const StringPimpl &stringContainingAIML)
 		//If it does exist, then add this string to it.
 		m_databaseManager->addRecordWithCount(userId + "_@" + botId + "_@stringsNotGraphed_@", stringToInsert);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -769,7 +768,7 @@ void GraphBuilderAIML::removeString(const StringPimpl &stringContainingAIML)
 		//If it does exist, then add this string to it.
 		m_databaseManager->addRecordWithCount(userId + "_@" + botId + "_@stringsGraphed_@", stringToInsert);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -804,7 +803,7 @@ void GraphBuilderAIML::setAddStringAIMLHeader(const StringPimpl &aimlHeader)
 		recursive_mutex::scoped_lock synchronized(m_this);
 		m_aimlHeader = aimlHeader;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -818,7 +817,7 @@ void GraphBuilderAIML::setAddStringAIMLFooter(const StringPimpl &aimlFooter)
 		recursive_mutex::scoped_lock synchronized(m_this);
 		m_aimlFooter = aimlFooter;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -840,7 +839,7 @@ StringPimpl GraphBuilderAIML::convertAndCheckXSD(const StringPimpl &schema)
 		path completePathSchema = complete(nativeDirFormat);
 		if(exists(completePathSchema))
 		{
-			return replace_all_copy(completePathSchema.native_file_string(), " ", "%20").c_str();
+            return replace_all_copy(completePathSchema.string(), " ", "%20").c_str();
 		}
 		else 
 		{
@@ -858,7 +857,7 @@ void GraphBuilderAIML::setAIMLSchema(const StringPimpl &schema)
 		recursive_mutex::scoped_lock synchronized(m_this);
 		m_aimlSchema = convertAndCheckXSD(schema);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -873,7 +872,7 @@ void GraphBuilderAIML::setCommonTypesSchema(const StringPimpl &schema)
 		recursive_mutex::scoped_lock synchronized(m_this);
 		m_commonTypesSchema = convertAndCheckXSD(schema);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1133,7 +1132,7 @@ StringPimpl GraphBuilderAIML::getResponse(const StringPimpl &input)
 		m_databaseManager->deleteRecordRange(m_databaseManager->m_reserved + userId + "_@" + botId + "_@" + endUserId + "_@previousSrai_@");
 		return getResponseInternal(input);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1157,7 +1156,7 @@ void GraphBuilderAIML::setAIMLValidation(bool trueOrFalse)
 		recursive_mutex::scoped_lock synchronized(m_this);
 		m_setAIMLValidation = trueOrFalse;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1203,7 +1202,7 @@ void GraphBuilderAIML::setThat(const StringPimpl &that)
 			m_databaseManager->addRecord(m_databaseManager->m_reserved + userId + "_@" + botId + "_@" + endUserId + "_@that_@", finalThat);
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1236,7 +1235,7 @@ void GraphBuilderAIML::setTopic(const StringPimpl &topic)
 			setPredicate("TOPIC", topicToStore);
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1265,7 +1264,7 @@ StringPimpl GraphBuilderAIML::getThat() const
 		StringPimpl endUserId = m_identificationManager->getEndUserId();
 		return m_databaseManager->getRecord(m_databaseManager->m_reserved + userId + "_@" + botId + "_@" + endUserId + "_@that_@", true);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1289,7 +1288,7 @@ StringPimpl GraphBuilderAIML::getTopic() const
 		//ScopedTransaction transaction(m_databaseManager);
 		return getPredicate("topic");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1312,7 +1311,7 @@ StringPimpl GraphBuilderAIML::getThatStar(const unsigned int &index) const
 		//ScopedTransaction transaction(m_databaseManager);
 		return m_starsManager->getThatStar(index);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1337,7 +1336,7 @@ StringPimpl GraphBuilderAIML::getTopicStar(const unsigned int &index) const
 		//ScopedTransaction transaction(m_databaseManager);
 		return m_starsManager->getTopicStar(index);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1362,7 +1361,7 @@ void GraphBuilderAIML::setPredicate(const StringPimpl &name,
 		//ScopedTransaction transaction(m_databaseManager);
 		m_predicateManager->setPredicate(name, value);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1387,7 +1386,7 @@ void GraphBuilderAIML::removePredicate(const StringPimpl &name)
 		//ScopedTransaction transaction(m_databaseManager);
 		m_predicateManager->removePredicate(name);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1411,7 +1410,7 @@ void GraphBuilderAIML::removeBotPredicate(const StringPimpl &name)
 		//ScopedTransaction transaction(m_databaseManager);
 		m_predicateManager->removeBotPredicate(name);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1533,7 +1532,7 @@ bool GraphBuilderAIML::predicateMatch(const StringPimpl &predicateName,
 			}
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1558,7 +1557,7 @@ StringPimpl GraphBuilderAIML::getPredicate(const StringPimpl &name) const
 		//ScopedTransaction transaction(m_databaseManager);
 		return m_predicateManager->getPredicate(name);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{	
 		throw ExceptionImpl(e.what());
 	}
@@ -1626,7 +1625,7 @@ void GraphBuilderAIML::createGraph()
 		m_databaseManager->deleteRecordCount(userId + "_@" + botId + "_@stringsNotGraphed_@");
 
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1727,7 +1726,7 @@ StringPimpl GraphBuilderAIML::getStar(unsigned const int &index) const
 		//ScopedTransaction transaction(m_databaseManager);
 		return m_starsManager->getDefaultStar(index);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1772,7 +1771,7 @@ StringPimpl GraphBuilderAIML::getPreviousBotResponse(const unsigned int &previou
 		//ScopedTransaction transaction(m_databaseManager);
 		return m_previousResponsesManager->getPreviousBotResponse(previousBotResponse, sentence);	
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1798,7 +1797,7 @@ StringPimpl GraphBuilderAIML::getPreviousBotResponsePunctuation(const unsigned i
 		//ScopedTransaction transaction(m_databaseManager);
 		return m_previousResponsesManager->getPreviousBotResponseWithPunctuation(previousBotResponse, sentence);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1824,7 +1823,7 @@ StringPimpl GraphBuilderAIML::getPreviousUserInput(const unsigned int &previousU
 		//ScopedTransaction transaction(m_databaseManager);
 		return m_previousResponsesManager->getPreviousUserInput(previousUserInput, sentence);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1850,7 +1849,7 @@ StringPimpl GraphBuilderAIML::getBotPredicate(const StringPimpl &name) const
 		//ScopedTransaction transaction(m_databaseManager);
 		return m_predicateManager->getBotPredicate(name);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{	
 		throw ExceptionImpl(e.what());
 	}
@@ -1875,7 +1874,7 @@ void GraphBuilderAIML::setBotPredicate(const StringPimpl &name,
 		//ScopedTransaction transaction(m_databaseManager);
 		m_predicateManager->setBotPredicate(name, value);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1900,7 +1899,7 @@ void GraphBuilderAIML::setBotConfigurationSchema(const StringPimpl &schema)
 		recursive_mutex::scoped_lock synchronized(m_this);
 		m_configurationSchema = convertAndCheckXSD(schema);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1914,7 +1913,7 @@ void GraphBuilderAIML::setBotConfigurationValidation(const bool trueOrFalse)
 		recursive_mutex::scoped_lock synchronized(m_this);
 		m_doConfigurationValidation = trueOrFalse;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1930,7 +1929,7 @@ void GraphBuilderAIML::parseSubstitutionFile(const StringPimpl &fileName)
 		//ScopedTransaction transaction(m_databaseManager);
 		parseConfigurationFile(fileName);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1952,7 +1951,7 @@ void GraphBuilderAIML::setInputSubstitution(const StringPimpl &find, const Strin
 	{		
 		throw IllegalArgumentExceptionImpl("Run time error in the find regular expression");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -1989,7 +1988,7 @@ void GraphBuilderAIML::setGenderSubstitution(const StringPimpl &find, const Stri
 	{
 		throw IllegalArgumentExceptionImpl("Run time error in the find regular expression");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2126,7 +2125,7 @@ void GraphBuilderAIML::setPersonSubstitution(const StringPimpl &find, const Stri
 	{
 		throw IllegalArgumentExceptionImpl("Run time error in the find regular expression");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2148,7 +2147,7 @@ void GraphBuilderAIML::setPerson2Substitution(const StringPimpl &find, const Str
 	{
 		throw IllegalArgumentExceptionImpl("Run time error in the find regular expression");
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2161,7 +2160,7 @@ StringPimpl GraphBuilderAIML::genderSubstitute(const StringPimpl &input) const
 	{
 		return substitute(input, m_genderSubstitutions);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2174,7 +2173,7 @@ StringPimpl GraphBuilderAIML::personSubstitute(const StringPimpl &input) const
 	{
 		return substitute(input, m_personSubstitutions);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2187,7 +2186,7 @@ StringPimpl GraphBuilderAIML::person2Substitute(const StringPimpl &input) const
 	{
 		return substitute(input, m_person2Substitutions);
 	} 
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2357,7 +2356,7 @@ void GraphBuilderAIML::parsePropertiesFile(const StringPimpl &fileName)
 	{
 		parseConfigurationFile(fileName);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2374,7 +2373,7 @@ void GraphBuilderAIML::parsePropertiesFile(const StringPimpl &fileName,
 		setUserIdBotIdEndUserId(userId, botId, endUserId);
 		parseConfigurationFile(fileName);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2387,7 +2386,7 @@ void GraphBuilderAIML::parseSentenceSplitterFile(const StringPimpl &fileName)
 	{
 		parseConfigurationFile(fileName);
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2401,7 +2400,7 @@ void GraphBuilderAIML::setSentenceSplitter(const StringPimpl &splitter)
 		recursive_mutex::scoped_lock synchronized(m_this);
 		m_sentenceSplitters += splitter;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2427,7 +2426,7 @@ int GraphBuilderAIML::getSize() const
 			return 0;
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2466,7 +2465,7 @@ StringPimpl GraphBuilderAIML::getVersion() const
 	{
 		return "1.1tp3";
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2480,7 +2479,7 @@ void GraphBuilderAIML::setCallBacks(CallBacks *callBacks)
 		recursive_mutex::scoped_lock synchronized(m_this);
 		m_callBacks = callBacks;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2494,7 +2493,7 @@ void GraphBuilderAIML::storeGossip(const StringPimpl &gossip)
 		m_callBacks->storeGossip(gossip, m_identificationManager->getUserId(), 
 			m_identificationManager->getBotId(), m_identificationManager->getEndUserId());
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2507,7 +2506,7 @@ CallBacks &GraphBuilderAIML::getCallBacks()
 	{
 		return *m_callBacks;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2520,7 +2519,7 @@ StringPimpl GraphBuilderAIML::getId() const
 	{
 		return m_identificationManager->getUserId();
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2533,7 +2532,7 @@ void GraphBuilderAIML::synchronizeDatabase() const
 	{
 		m_databaseManager->sync();
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2570,7 +2569,7 @@ void GraphBuilderAIML::setUserIdBotIdEndUserId(const StringPimpl &userId,
 			setTopic("*");
 		}
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2642,7 +2641,7 @@ StringPimpl GraphBuilderAIML::checkedInfiniteLoopGetResponse(const StringPimpl &
 		m_starsManager->setTopicStarMap(m_tempTopicStar);
 		return response;
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
@@ -2953,22 +2952,10 @@ StringPimpl GraphBuilderAIML::callSystemCommand(const StringPimpl &command) cons
 	sa.nLength = sizeof(SECURITY_ATTRIBUTES);
 	sa.bInheritHandle = TRUE;
 	int fd, create;
-	OSVERSIONINFO osv;
-	osv.dwOSVersionInfoSize = sizeof(osv);
-	
-	GetVersionEx(&osv);
 
-	if (osv.dwPlatformId == VER_PLATFORM_WIN32_NT)
-	{
-		InitializeSecurityDescriptor(&sd, SECURITY_DESCRIPTOR_REVISION);
-		SetSecurityDescriptorDacl(&sd, TRUE, NULL, FALSE);
-		sa.lpSecurityDescriptor = &sd;
-	}
-	else
-	{
-		/* Pipe will use ACLs from default descriptor */
-		sa.lpSecurityDescriptor = NULL;
-	}
+    InitializeSecurityDescriptor(&sd, SECURITY_DESCRIPTOR_REVISION);
+	SetSecurityDescriptorDacl(&sd, TRUE, NULL, FALSE);
+	sa.lpSecurityDescriptor = &sd;
 
 	/* Create a new pipe with system's default buffer size */
 	if (!CreatePipe(&read_pipe, &write_pipe, &sa, 0))

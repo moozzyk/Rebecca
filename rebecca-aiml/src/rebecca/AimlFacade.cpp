@@ -53,7 +53,7 @@ AimlFacade::AimlFacade()
 		m_factory = Factory::getInstance()->reset();
 		m_graphBuilder = m_factory->createGraphBuilder();
 	}
-	catch(exception &e)
+	catch(std::exception &e)
 	{
 		throw ExceptionImpl(e.what());
 	}
