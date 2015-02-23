@@ -163,6 +163,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\db-6.1.19\build_windows\VS12\db.vcxproj">
+      <Project>{fd045d60-abad-4a6c-9794-9bfb085fc3e7}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\xerces-c-3.1.1\projects\Win32\VC12\xerces-all\XercesLib\XercesLib.vcxproj">
       <Project>{152ce948-f659-4206-a50a-1d2b9658ef96}</Project>
     </ProjectReference>
