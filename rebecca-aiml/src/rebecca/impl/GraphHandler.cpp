@@ -286,7 +286,7 @@ Tag *GraphHandler::createTagClass(const StringPimpl &className)
 }
 
 void GraphHandler::characters(const XMLCh * const chars, 
-                              const unsigned int length)
+                              const XMLSize_t length)
 {
 	try
 	{

@@ -42,7 +42,7 @@ ConfigurationHandler::ConfigurationHandler()
 { }
 
 void ConfigurationHandler::characters(const XMLCh *const chars, 
-									  const unsigned int length)
+									  XMLSize_t length)
 {
 	//Warning, This should not be called
 }

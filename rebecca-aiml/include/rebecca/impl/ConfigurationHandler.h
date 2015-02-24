@@ -149,10 +149,10 @@ class ConfigurationHandler : public HandlerBase
 		ConfigurationHandler();
 
 		//Call back's from the sax parser
-		virtual void characters(const XMLCh *const chars, const unsigned int length);
-		virtual void startElement(const XMLCh* const, AttributeList&);
-		virtual void endElement(const XMLCh *const name);
-		virtual void endDocument();
+		virtual void characters(const XMLCh *const chars, const XMLSize_t length) override;
+		virtual void startElement(const XMLCh* const, AttributeList&) override;
+		virtual void endElement(const XMLCh *const name) override;
+		virtual void endDocument() override;
 
 		Tag *createTagClass(const string &className);
 	private:

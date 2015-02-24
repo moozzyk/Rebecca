@@ -49,14 +49,14 @@ class GraphHandler : public HandlerBase
 		//Call back's from the sax parser
 
 		GraphHandler(NodeMapper &root);
-		virtual void characters(const XMLCh *const chars, const unsigned int length);
-		virtual void startElement(const XMLCh* const, AttributeList&);
-		virtual void endElement(const XMLCh *const name);
-		virtual void endDocument();
-		virtual void startDocument();
+		virtual void characters(const XMLCh *const chars, const XMLSize_t length) override;
+        virtual void startElement(const XMLCh* const, AttributeList&) override;
+        virtual void endElement(const XMLCh *const name) override;
+        virtual void endDocument() override;
+        virtual void startDocument() override;
 		//Regular additional public members.
 
-		virtual void setAIMLVersion(const string &version);
+        virtual void setAIMLVersion(const string &version);
 		virtual string getAIMLVersion();
 		virtual ~GraphHandler() { }
 

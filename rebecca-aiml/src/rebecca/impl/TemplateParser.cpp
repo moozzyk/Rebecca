@@ -247,7 +247,7 @@ Tag *TemplateParser::createTagClass(const StringPimpl &className)
 }
 
 void TemplateParser::characters(const XMLCh * const chars, 
-                              const unsigned int length)
+                              const XMLSize_t length)
 {
 	try
 	{

@@ -49,10 +49,10 @@ class TemplateParser : public HandlerBase
 		//Call back's from the sax parser
 
 		TemplateParser();
-		void characters(const XMLCh *const chars, const unsigned int length);
-		void startElement(const XMLCh* const, AttributeList&);
-		void endElement(const XMLCh *const name);
-		void endDocument();
+		void characters(const XMLCh *const chars, const XMLSize_t length) override;
+		void startElement(const XMLCh* const, AttributeList&) override;
+		void endElement(const XMLCh *const name) override;
+		void endDocument() override;
 		StringPimpl getTemplateString();
 
 	private:
