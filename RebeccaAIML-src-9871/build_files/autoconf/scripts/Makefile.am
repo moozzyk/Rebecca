@@ -1,4 +1,0 @@
-AUTOMAKE_OPTS = gnu
-
-bin_SCRIPTS=@mysamples@
-EXTRA_SCRIPTS=bin_SCRIPTS

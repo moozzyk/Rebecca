@@ -1,1 +1,0 @@
-These pictures are used by the qtgui program as resources.
